@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Мой профиль | Tellmer</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, minimal-ui, user-scalable=no">
+	<!-- Скрипт для LiveReload  -->
+
+
+	<!--Подключаем стили в этом порядке  -->
+	<link rel="stylesheet" href="frameworks/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="frameworks/material-bootstrap/css/material.min.css">
+	<link rel="stylesheet" href="frameworks/material-bootstrap/css/ripples.min.css">
+	<link rel="stylesheet" href="frameworks/material-bootstrap/css/roboto.min.css">
+	<link rel="stylesheet" href="libs/jquery/nice-select/css/nice-select.css">
+	<link rel="stylesheet" href="css/style.css?ver=">
+	<link rel="stylesheet" href="css/style-mobile.css?ver=">
+</head>	
+<body>
+	<div class="container-fluid text-center"> <!-- Основной контейнер -->	
+		<!-- Хедер -->	
+		<header class="header no-padding">		
+			<div class="row head--desktop shadow-z-1 color-skin">
+				<div class="col-xs-4 col-sm-4 col-md-6 col-lg-6 max-height no-padding">
+					<a href="#"><div class="head__logo head__logo--desktop"></div></a>
+				</div>
+				<div class="col-xs-8 col-sm-8 col-md-6 col-lg-6 text-center max-height no-padding">
+					<div class="head__menu--desktop">
+						<a href="/chat.html" data-toggle="tooltip" data-delay="300" data-placement="bottom" data-original-title="Общий чат"><i class="mdi-communication-forum menu-item menu-item--desktop" aria-hidden="true"></i></a>	
+						<a href="/search.html" data-toggle="tooltip" data-delay="300" data-placement="bottom" data-original-title="Поиск"><i class="mdi-action-search menu-item menu-item--desktop" aria-hidden="true"></i></a>	
+						<a href="/dialogs.html" data-toggle="tooltip" data-delay="300" data-placement="bottom" data-original-title="Сообщения"><i class="mdi-communication-email menu-item menu-item--desktop" aria-hidden="true"><span class="badge menu-item__count">3</span></i></a>
+						<a href="#" data-toggle="tooltip" data-delay="300" data-placement="bottom" data-original-title="Друзья"><i class="mdi-social-person-add menu-item menu-item--desktop" aria-hidden="true"><span class="badge menu-item__count">10</span></i></a>
+						<a href="#" data-toggle="tooltip" data-delay="300" data-placement="bottom" data-original-title="Гости"><i class="mdi-social-group menu-item menu-item--desktop" aria-hidden="true"></i></a>
+						<a href="/index.html" data-toggle="tooltip" data-delay="300" data-placement="bottom" data-original-title="Мой профиль"><span class="menu-avatar menu-avatar--desktop"><img	src="img/avatar/mark.jpg" alt=""></span></a>
+						<a href="" data-toggle="tooltip" data-delay="300" data-placement="bottom" data-original-title="Выход"><i class="mdi-action-exit-to-app menu-item menu-item--desktop" aria-hidden="true"></i></a>			
+					</div>
+				</div>
+			</div>
+			<div class="row head--mobile shadow-z-1 color-skin">
+				<div class="col-xs-6 col-sm-6 max-height no-padding">
+					<a href="#"><div class="head__logo head__logo--mobile"></div></a>
+				</div>
+				<div class="col-xs-6 col-sm-6 max-height no-padding">
+					<div class="head__menu-button">
+						<button	id="menu-button" class="menu-button">
+							<i id="menu-button-icon" class="mdi-navigation-menu"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</header>	
+
+		<div class="tellmer-menu">
+			<div class="row content-menu">
+				<div class="col-xs-12 col-sm-12 no-padding max-height">	
+					<ul class="content-menu__list">
+						<li class="d-list__item"></li>
+						<a href=""><li class="d-list__item"><i class="mdi-navigation-arrow-back d-item__icon" aria-hidden="true"><span class="d-item__title">Назад</span></i></li></a>
+						<div class="divider"></div>
+						<a href="/chat.html"><li class="d-list__item"><i class="mdi-communication-forum d-item__icon" aria-hidden="true"><span class="d-item__title">Общий чат</span></i></li></a>
+						<div class="divider"></div>
+						<a href="/search.html"><li class="d-list__item"><i class="mdi-action-search d-item__icon" aria-hidden="true"><span class="d-item__title">Поиск</span></i></li></a>
+						<div class="divider"></div>
+						<a href=""><li class="d-list__item"><i class="mdi-communication-email d-item__icon" aria-hidden="true"><span class="d-item__title">Сообщения<span class="d-title__count">(3)</span></span></i></li></a>
+						<div class="divider"></div>
+						<a href=""><li class="d-list__item"><i class="mdi-social-person-add d-item__icon" aria-hidden="true"><span class="d-item__title">Друзья<span class="d-title__count">(10)</span></span></i></li></a>
+						<div class="divider"></div>
+						<a href=""><li class="d-list__item"><i class="mdi-social-group d-item__icon" aria-hidden="true"><span class="d-item__title">Гости</span></i></li></a>
+						<div class="divider"></div>
+						<a href="/index.html"><li class="d-list__item"><i class="mdi-action-face-unlock d-item__icon" aria-hidden="true"><span class="d-item__title">Мой профиль</span></i></li></a>
+						<div class="divider"></div>
+						<a href=""><li class="d-list__item"><i class="mdi-action-exit-to-app d-item__icon" aria-hidden="true"><span class="d-item__title">Выход</span></i></li></a>							
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="menu-overlay"></div>
+
+		<!-- Хедер конец-->
+		
+		<div class="content">
+
+			<!-- Обложка -->	
+			<div class="row cover">
+				<div id="mp-cover-picture" class="row cover__picture no-padding">
+					<div id="mp-cover-color" class="row cover__color no-padding"></div>
+				</div>	
+			</div>
+
+			<!-- Карточки -->	
+			<div class="row mp">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 text-center no-padding">
+
+					<!-- Карточка 1 -->	
+					<div class="card shadow-z-1 mp-card-1">
+						<div class="mp-info">
+							<div class="row no-padding mp-info-about">
+								<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-ipad no-padding">
+									<div class="mp-info-about__avatar">
+										<a href="img/avatar/mark-lg.jpg" data-imagelightbox="user"><img class="mp-d-avatar__img shadow-z-1" src="img/avatar/mark.jpg" alt=""></a>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10 col-ipad text-left no-padding">
+									<div class="mp-info-about__user">				
+										<span class="mp-d-user__name">Mark Zuckerberg<span class="mdi-image-lens mp-d-name__point mp-d-name__point--online" aria-hidden="true"></span></span><br>			
+										<span class="mp-d-user__age">26,</span>
+										<span class="mp-d-user__sex">муж.,</span>	
+										<span class="mp-d-user__relationship">в активном поиске</span><br>
+										<span class="mp-d-user__city">Palo Alto</span>					
+									</div>
+								</div>
+							</div>
+							<div class="row mp-status no-padding">
+								<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10 no-padding vertical-table mp-status__text">			
+									<p class="vertical-table-cell mp-d-text__post">Привет всем, я только что зарегистрировался на tellmer. Тут прикольно! Приглашаю вас стать моими друзьями...
+									</p>	
+								</div>							
+								<div class="mp-status__controls">		
+									<button id="mp-status-btn-status" class="btn btn-fab btn-raised mdi-editor-mode-edit mp-d-controls__btn-status" data-toggle="modal" data-target="#mp-text-status"></button>
+								</div>											
+							</div>
+							<div class="divider"></div>	
+							<div class="row mp-photo no-padding">		
+								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 no-padding">	
+									<div class="mp-photo__item">
+										<a href="img/photo/mark2-lg.jpg" data-imagelightbox="user"><img class="mp-d-item__photo" src="img/photo/mark2.jpg"></a>
+									</div>
+								</div>
+								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 no-padding">	
+									<div class="mp-photo__item">
+										<a href="img/photo/mark3-lg.jpg" data-imagelightbox="user"><img class="mp-d-item__photo" src="img/photo/mark3.jpg"></a>
+									</div>
+								</div>
+								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 no-padding">	
+									<div class="mp-photo__item">
+										<a href="img/photo/mark4-lg.jpg" data-imagelightbox="user"><img class="mp-d-item__photo" src="img/photo/mark4.jpg"></a>
+									</div>
+								</div>
+							</div>
+							<div class="divider"></div>
+							<div class="row mp-statistics no-padding">	
+								<div class="row no-padding">
+									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 no-padding">
+										<div class="mp-statistics-item">
+											<span class="mp-d-item__icon mp-d-item__icon--up mdi-action-thumb-up pointer" aria-hidden="true"></span><br>
+											<span class="mp-d-item__count mp-d-item__icon--up">58</span>
+										</div>
+									</div>									
+									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 no-padding">
+										<div class="circle-progress">
+											<div class="progress-count">
+												<strong>65</strong>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 no-padding">
+										<div class="mp-statistics-item">
+											<span class="mp-d-item__icon mp-d-item__icon--down mdi-action-thumb-down pointer" aria-hidden="true"></span><br>
+											<span class="mp-d-item__count mp-d-item__icon--down">25</span>
+										</div>
+									</div>
+								</div>
+								<div class="row no-padding">
+									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 no-padding">
+										<div class="mp-statistics-item">
+											<span class="mp-d-item__icon mdi-action-visibility" aria-hidden="true"></span><br>
+											<span class="mp-d-item__count">180</span><br>
+											<span class="mp-d-item__title">Просмотры</span>
+										</div>
+									</div>
+									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 no-padding">
+										<div class="mp-statistics-item">
+											<span class="mp-d-item__icon mdi-social-mood" aria-hidden="true"></span><br>
+											<span class="mp-d-item__count">56%</span><br>
+											<span class="mp-d-item__title">Общительность</span>
+										</div>
+									</div>
+									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 no-padding">
+										<div class="mp-statistics-item">
+											<span class="mp-d-item__icon mdi-social-group" aria-hidden="true"></span><br>
+											<span class="mp-d-item__count">356</span><br>
+											<span class="mp-d-item__title">Друзья</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="divider"></div>
+
+
+							<div class="row mp-about-me no-padding">	
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding ">									
+									<div class="mp-about-me__title">Обо мне</div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding max-height vertical-table">
+									<p class="vertical-table-cell mp-about-me__text">
+										Марк Э́ллиот Цукербе́рг — американский программист и предприниматель в области интернет-технологий, долларовый миллиардер, один из разработчиков и основателей социальной сети Facebook. Руководитель компании Facebook Inc. Википедия
+									</p>
+								</div>
+							</div>
+
+
+
+						</div>
+
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 text-center no-padding">
+					<!-- Карточка 2 -->	
+					<div class="card shadow-z-1 no-padding mp-card-2">
+
+						<div class="tabs">
+							<div class="row no-padding max-height">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding max-height">	
+
+									<ul class="nav nav-tabs">
+										<li class="active"><a href="#online" data-toggle="tab"><span class="mdi-action-account-circle tabs__icon" aria-hidden="true"></span>Лента</a></li>
+										<li><a href="#news" data-toggle="tab"><span class="mdi-action-autorenew tabs__icon" aria-hidden="true"></span>Новости</a></li>	
+										<li><a href="#edit" data-toggle="tab"><span class="mdi-action-settings tabs__icon" aria-hidden="true"></span>Настройки</a></li>		
+									</ul>
+
+									<div class="tab-content">
+										<div class="tab-pane fade in active max-height" id="online">
+											<div class="row no-padding max-height">
+												<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding mp-tape frame-tape">	
+
+													<div id="wall-scroll" class="scrollbar">
+														<div class="handle">
+															<div class="mousearea"></div>
+														</div>
+													</div>
+
+													<div class="mp-tape__content content-scroll slide-tape">	
+
+														<div class="mp-content__note">
+															<div class="row no-padding mp-d-note__note-container">
+																<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mp-d-note-container__avatar no-padding">
+																	<a href="#"><img class="mp-d-avatar__note-avatar" src="img/mark2.jpg"></a>
+																</div>
+																<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding mp-d-note-container__note-content">
+																	<div class="row no-padding mp-d-note-content__note-head">
+																		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding mp-d-note-head__user">
+																			<a href="#">Mark Zuckerberg</a>
+																		</div>
+																		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding mp-d-note-head__icon-item">
+																			<span class="mp-d-icon-item__icon--repost">
+																				<span class="mdi-social-share mp-d-icon__note-icon" aria-hidden="true"></span>
+																				<span class="mp-d-icon__note-count">5</span>
+																			</span>
+
+																			<span class="mp-d-icon-item__icon--like">
+																				<span class="mdi-action-favorite-outline mp-d-icon__note-icon" aria-hidden="true"></span>
+																				<span class="mp-d-icon__note-count">14</span>
+																			</span>
+
+																			<span class="dropdown">
+																				<span class="mp-d-icon-item__icon--menu dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+																					<span class="mdi-navigation-more-vert"></span>
+																				</span>
+																				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+																					<li><span class="mdi-action-delete dropdown-menu__icon" aria-hidden="true"></span><span class="dropdown-menu__title">Удалить запись</span></li>
+																					<div class="divider"></div>
+																					<li><span class="mdi-content-block dropdown-menu__icon" aria-hidden="true"></span><span class="dropdown-menu__title">Заблокировать записи</span></li>
+																				</ul>
+																			</span>
+																		</div>
+																	</div>
+																	<div class="row mp-d-note-content__note-body no-padding">
+																		<p class="mp-d-note-body__text">
+																			:)
+																		</p>
+																		<a href="img/upload/1.jpg" data-imagelightbox="content"><img class="mp-d-note-body__img" src="img/upload/1.jpg" alt=""></a>
+																	</div>
+																</div>
+															</div>
+															<div class="divider"></div>
+														</div>
+
+														<div class="mp-content__note">
+															<div class="row no-padding mp-d-note__note-container">
+																<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mp-d-note-container__avatar no-padding">
+																	<a href="/other-profile.html"><img class="mp-d-avatar__note-avatar" src="img/avatar/steve.jpg"></a>
+																</div>
+																<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mp-d-note-container__note-content">
+																	<div class="row no-padding mp-d-note-content__note-head">
+																		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding mp-d-note-head__user">
+																			<a href="/other-profile.html">Steve Jobs</a>
+																		</div>
+																		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding mp-d-note-head__icon-item">
+
+
+																			<span class="mp-d-icon-item__icon--repost">
+																				<span class="mdi-social-share mp-d-icon__note-icon" aria-hidden="true"></span>
+																				<span class="mp-d-icon__note-count">5</span>
+																			</span>
+
+																			<span class="mp-d-icon-item__icon--like">
+																				<span class="mdi-action-favorite-outline mp-d-icon__note-icon" aria-hidden="true"></span>
+																				<span class="mp-d-icon__note-count">14</span>
+																			</span>
+
+																			<span class="dropdown">
+																				<span class="mp-d-icon-item__icon--menu dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+																					<span class="mdi-navigation-more-vert"></span>
+																				</span>
+																				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+																					<li><span class="mdi-action-delete dropdown-menu__icon" aria-hidden="true"></span><span class="dropdown-menu__title">Удалить запись</span></li>
+																					<div class="divider"></div>
+																					<li><span class="mdi-content-block dropdown-menu__icon" aria-hidden="true"></span><span class="dropdown-menu__title">Заблокировать записи</span></li>
+																				</ul>
+																			</span>
+
+																		</div>
+																	</div>
+																	<div class="row mp-d-note-content__note-body no-padding">
+																		<p class="mp-d-note-body__text">
+																			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo molestias, mollitia aperiam magnam deleniti nihil accusantium! Pariatur autem, explicabo consequatur reprehenderit cupiditate maxime harum voluptatum tenetur, expedita ipsum, natus nemo.
+																		</p>
+																	</div>
+																</div>
+															</div>
+															<div class="divider"></div>
+														</div>
+
+														<div class="mp-content__note">
+															<div class="row no-padding mp-d-note__note-container">
+																<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mp-d-note-container__avatar no-padding">
+																	<a href="#"><img class="mp-d-avatar__note-avatar" src="img/1.jpg"></a>
+																</div>
+																<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding mp-d-note-container__note-content">
+																	<div class="row no-padding mp-d-note-content__note-head">
+																		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding mp-d-note-head__user">
+																			<a href="#">Кристина Иванова</a>
+																		</div>
+																		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding mp-d-note-head__icon-item">
+																			<span class="mp-d-icon-item__icon--repost">
+																				<span class="mdi-social-share mp-d-icon__note-icon" aria-hidden="true"></span>
+																				<span class="mp-d-icon__note-count">5</span>
+																			</span>
+
+																			<span class="mp-d-icon-item__icon--like">
+																				<span class="mdi-action-favorite-outline mp-d-icon__note-icon" aria-hidden="true"></span>
+																				<span class="mp-d-icon__note-count">14</span>
+																			</span>
+
+																			<span class="dropdown">
+																				<span class="mp-d-icon-item__icon--menu dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+																					<span class="mdi-navigation-more-vert"></span>
+																				</span>
+																				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+																					<li><span class="mdi-action-delete dropdown-menu__icon" aria-hidden="true"></span><span class="dropdown-menu__title">Удалить запись</span></li>
+																					<div class="divider"></div>
+																					<li><span class="mdi-content-block dropdown-menu__icon" aria-hidden="true"></span><span class="dropdown-menu__title">Заблокировать записи</span></li>
+																				</ul>
+																			</span>
+																		</div>
+																	</div>
+																	<div class="row mp-d-note-content__note-body no-padding">
+																		<p class="mp-d-note-body__text">
+																			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo molestias, mollitia aperiam magnam deleniti nihil accusantium! Pariatur autem, explicabo consequatur reprehenderit cupiditate maxime harum voluptatum tenetur, expedita ipsum, natus nemo.
+																		</p>
+																		<a href="img/upload/1.gif" data-imagelightbox="content"><img class="mp-d-note-body__img" src="img/upload/1.gif" alt=""></a>
+																	</div>
+																</div>
+															</div>
+															<div class="divider"></div>
+														</div>
+
+														<div class="mp-content__note">
+															<div class="row no-padding mp-d-note__note-container">
+																<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mp-d-note-container__avatar no-padding">
+																	<a href="#"><img class="mp-d-avatar__note-avatar" src="img/2.jpg"></a>
+																</div>
+																<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding mp-d-note-container__note-content">
+																	<div class="row no-padding mp-d-note-content__note-head">
+																		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding mp-d-note-head__user">
+																			<a href="#">Марина Петрова</a>
+																		</div>
+																		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding mp-d-note-head__icon-item">
+																			<span class="mp-d-icon-item__icon--repost">
+																				<span class="mdi-social-share mp-d-icon__note-icon" aria-hidden="true"></span>
+																				<span class="mp-d-icon__note-count">5</span>
+																			</span>
+
+																			<span class="mp-d-icon-item__icon--like">
+																				<span class="mdi-action-favorite-outline mp-d-icon__note-icon" aria-hidden="true"></span>
+																				<span class="mp-d-icon__note-count">14</span>
+																			</span>
+
+																			<span class="dropdown">
+																				<span class="mp-d-icon-item__icon--menu dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+																					<span class="mdi-navigation-more-vert"></span>
+																				</span>
+																				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+																					<li><span class="mdi-action-delete dropdown-menu__icon" aria-hidden="true"></span><span class="dropdown-menu__title">Удалить запись</span></li>
+																					<div class="divider"></div>
+																					<li><span class="mdi-content-block dropdown-menu__icon" aria-hidden="true"></span><span class="dropdown-menu__title">Заблокировать записи</span></li>
+																				</ul>
+																			</span>
+																		</div>
+																	</div>
+																	<div class="row mp-d-note-content__note-body no-padding">
+																		<p class="mp-d-note-body__text">
+																			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo molestias, mollitia aperiam magnam deleniti nihil accusantium! Pariatur autem, explicabo consequatur reprehenderit cupiditate maxime harum voluptatum tenetur, expedita ipsum, natus nemo.
+																		</p>
+																	</div>
+																</div>
+															</div>
+															<div class="divider"></div>
+														</div>
+
+
+													</div>
+
+												</div>
+											</div>
+										</div>
+
+										<div class="tab-pane fade max-height" id="news">
+											<div class="row no-padding max-height">
+												<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding top-container">	
+													<div class="badge-title">
+														<span class="badge-title__span">Топ</span>
+													</div>
+													<div class="divider"></div>	
+													<div class="top-container__content">	
+														<div class="col-xs-3 col-sm-3 col-md-2 top-content-padding">
+															<a href="#"><img class="content__top-img" src="img/1.jpg"></a>
+														</div>
+														<div class="col-xs-3 col-sm-3 col-md-2 top-content-padding">
+															<a href="#"><img class="content__top-img" src="img/2.jpg"></a>
+														</div>
+														<div class="col-xs-3 col-sm-3 col-md-2 top-content-padding">
+															<a href="#"><img class="content__top-img" src="img/3.jpg"></a>
+														</div>
+														<div class="col-xs-3 col-sm-3 col-md-2 top-content-padding">
+															<a href="#"><img class="content__top-img" src="img/4.jpg"></a>
+														</div>
+														<div class="col-xs-3 col-sm-3 col-md-2 top-content-padding">
+															<a href="#"><img class="content__top-img" src="img/5.jpg"></a>
+														</div>
+														<div class="col-xs-3 col-sm-3 col-md-2 top-content-padding">
+															<a href="#"><img class="content__top-img" src="img/6.jpg"></a>
+														</div>
+														<div class="col-xs-3 col-sm-3 col-md-2 top-content-padding">
+															<a href="#"><img class="content__top-img" src="img/7.jpg"></a>
+														</div>
+														<div class="col-xs-3 col-sm-3 col-md-2 top-content-padding">
+															<a href="#"><img class="content__top-img" src="img/8.jpg"></a>
+														</div>
+														<div class="col-xs-3 col-sm-3 col-md-2 top-content-padding">
+															<a href="#"><img class="content__top-img" src="img/9.jpg"></a>
+														</div>
+														<div class="col-xs-3 col-sm-3 col-md-2 top-content-padding">
+															<a href="#"><img class="content__top-img" src="img/10.jpg"></a>
+														</div>
+														<div class="col-xs-3 col-sm-3 col-md-2 top-content-padding">
+															<a href="#"><img class="content__top-img" src="img/11.jpg"></a>
+														</div>
+														<div class="col-xs-3 col-sm-3 col-md-2 top-content-padding">
+															<a href="#"><img class="content__top-img" src="img/12.jpg"></a>
+														</div>
+													</div>
+													<div class="divider"></div>
+												</div>
+												<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding news-container">	
+													<div class="badge-title">
+														<span class="badge-title__span">Новости</span>
+													</div>	
+													<div class="news-container__news frame-news">
+														<div id="news-scroll" class="scrollbar scrollbar-news">
+															<div class="handle">
+																<div class="mousearea"></div>
+															</div>
+														</div>
+														<div class="d-news__content content-scroll slide-news">
+															<p class="d-content__p"><span class="d-content__date">19:00: </span><a class="d-content__link" href="#">John</a> добавил <a class="d-content__link" href="#">Alisia</a> в друзья.</p>
+															<p class="d-content__p"><span class="d-content__date">19:00: </span><a class="d-content__link" href="#">Mark</a> обновил статус на своей странице.</p>
+															<p class="d-content__p"><span class="d-content__date">19:00: </span><a class="d-content__link" href="#">Amanda</a> изменила свое семейное положение.</p>
+															<p class="d-content__p"><span class="d-content__date">19:00: </span>Страница <a class="d-content__link" href="#">Kimberly</a> стремительно набирает популярность.</p>
+															<p class="d-content__p"><span class="d-content__date">19:00: </span>Страница <a class="d-content__link" href="#">Jack</a> теряет популярность.</p>
+															<p class="d-content__p"><span class="d-content__date">19:00: </span>Пользователю <a class="d-content__link" href="#">Doug</a> понравился пользователь <a  class="d-content__link" href="#">Krystal</a></p>
+															<p class="d-content__p"><span class="d-content__date">19:00: </span><a class="d-content__link" href="#">John</a> добавил <a class="d-content__link" href="#">Alisia</a> в друзья.</p>
+															<p class="d-content__p"><span class="d-content__date">19:00: </span><a class="d-content__link" href="#">Mark</a> обновил статус на своей странице.</p>
+															<p class="d-content__p"><span class="d-content__date">19:00: </span><a class="d-content__link" href="#">Amanda</a> изменила свое семейное положение.</p>
+															<p class="d-content__p"><span class="d-content__date">19:00: </span>Страница <a class="d-content__link" href="#">Kimberly</a> стремительно набирает популярность.</p>
+															<p class="d-content__p"><span class="d-content__date">19:00: </span>Страница <a class="d-content__link" href="#">Jack</a> теряет популярность.</p>
+															<p class="d-content__p"><span class="d-content__date">19:00: </span>Пользователю <a class="d-content__link" href="#">Doug</a> понравился пользователь <a class="d-content__link" href="#">Krystal</a></p>	
+															<p class="d-content__p"><span class="d-content__date">19:00: </span><a class="d-content__link" href="#">John</a> добавил <a class="d-content__link" href="#">Alisia</a> в друзья.</p>
+															<p class="d-content__p"><span class="d-content__date">19:00: </span><a class="d-content__link" href="#">Mark</a> обновил статус на своей странице.</p>
+															<p class="d-content__p"><span class="d-content__date">19:00: </span><a class="d-content__link" href="#">Amanda</a> изменила свое семейное положение.</p>
+															<p class="d-content__p"><span class="d-content__date">19:00: </span>Страница <a class="d-content__link" href="#">Kimberly</a> стремительно набирает популярность.</p>
+															<p class="d-content__p"><span class="d-content__date">19:00: </span>Страница <a class="d-content__link" href="#">Jack</a> теряет популярность.</p>
+															<p class="d-content__p"><span class="d-content__date">19:00: </span>Пользователю <a class="d-content__link" href="#">Doug</a> понравился пользователь <a class="d-content__link" href="#">Krystal</a></p>
+															<p class="d-content__p"><span class="d-content__date">19:00: </span><a class="d-content__link" href="#">John</a> добавил <a class="d-content__link" href="#">Alisia</a> в друзья.</p>
+															<p class="d-content__p"><span class="d-content__date">19:00: </span><a class="d-content__link" href="#">Mark</a> обновил статус на своей странице.</p>
+															<p class="d-content__p"><span class="d-content__date">19:00: </span><a class="d-content__link" href="#">Amanda</a> изменила свое семейное положение.</p>
+															<p class="d-content__p"><span class="d-content__date">19:00: </span>Страница <a class="d-content__link" href="#">Kimberly</a> стремительно набирает популярность.</p>
+															<p class="d-content__p"><span class="d-content__date">19:00: </span>Страница <a class="d-content__link" href="#">Jack</a> теряет популярность.</p>
+															<p class="d-content__p"><span class="d-content__date">19:00: </span>Пользователю <a class="d-content__link" href="#">Doug</a> понравился пользователь <a class="d-content__link" href="#">Krystal</a></p>												
+														</div>	
+													</div>	
+												</div>
+
+											</div>
+
+										</div>
+
+										<!--Настройки -->
+										<div class="tab-pane fade max-height" id="edit">
+											<div class="mp-edit-content">
+												<div class="row">
+													<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 padding-input">
+														<input id="name" type="text" class="form-control floating-label mp-edit-content__input" placeholder="Имя">
+													</div>
+													<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 padding-input">
+														<input id="sourname" type="text" class="form-control floating-label mp-edit-content__input" placeholder="Фамилия">
+													</div>
+													<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 padding-input">
+														<input id="age" type="text" class="form-control floating-label mp-edit-content__input" placeholder="Возраст">
+													</div>
+													<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 padding-input">
+														<input id="city" type="text" class="form-control floating-label mp-edit-content__input" placeholder="Город">
+													</div>
+													<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 padding-input">
+														<select id="sex">
+															<option value="1">Я мужчина</option>
+															<option value="2">Я женщина</option>
+														</select>
+													</div>
+													<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 padding-input">
+														<select id="relationship">
+															<option value="1">и я в активном поиске</option>
+															<option value="2">и я уже встречаюсь</option>
+															<option value="3">и я в браке</option>
+															<option value="4">и я никого не ищу</option>
+														</select>
+													</div>
+													<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 padding-input">
+														<textarea id="mp-edit-about" class="form-control floating-label edit-content__textarea" placeholder="Расскажите о себе..."></textarea>	
+													</div>
+													<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+														<button id="mp-edit-btn-photo" class="btn" data-toggle="modal" data-target="#mp-photo-load">Загрузка фото</button>	
+													</div>
+												</div>
+											</div>
+											<div class="mp-edit__btn-save">
+												<button id="mp-edit-btn-save" class="btn shadow-z-1">Сохранить</button>
+											</div>
+
+										</div><!--Настройки-конец -->
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<div id="mp-my-float-btn" class="float-btn">
+					<div class="sub-btn display-none">
+						<div class="button-sub shadow-z-1" data-color="green"><span class="mdi-editor-mode-edit" aria-hidden="true" data-toggle="modal" data-target="#mp-text-status"></span></div>
+						<div id="mp-btn-top" class="button-sub shadow-z-1" data-color="blue"><span class="mdi-navigation-expand-less" aria-hidden="true"></span></div>
+					</div>
+					<div class="button-floating-shadow shadow-z-1"></div>
+					<button id="float-btn" class="btn btn-fab btn-raised mdi-content-add button-floating"></button>
+				</div>
+
+			</div>
+
+		</div>
+
+		<!-- футер -->
+		<footer class="row footer">
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 footer-content">
+				<div class="footer-content__links">
+					<a class="d-links__a" href="#">о сайте</a>
+					<a class="d-links__a" href="#">помощь</a>
+					<a class="d-links__a" href="#">правила</a>
+				</div>
+				<div class="footer-content__copy">
+					<span>Tellmer &copy 2015</span>
+				</div>
+			</div>
+		</footer>
+
+		<div id="mp-text-status" class="modal fade" tabindex="-1">
+			<div class="modal-dialog mp-modal-window">
+				<div class="modal-content ">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="mdi-content-clear modal-header__close-btn" aria-hidden="true"></span></button>
+					</div>
+					<div class="modal-body">						
+						<div class="mp-modal-window__body">
+							<div class="row no-padding max-height">
+								<textarea id="mp-modal-textarea" class="form-control mp-d-body__textarea" placeholder="Введите текст вашей записи..."></textarea>
+							</div>
+							<div class="row no-padding max-height">
+								<div class="col-md-12 no-padding">
+									<span id="add-file-note" class="mdi-image-camera mp-d-body__add-file-note" aria-hidden="true"></span>
+									<span class="display-none">
+										<input type="file" id="add-photo-post" multiple="">
+									</span>
+									<button id="mp-modal-btn-send" class="btn shadow-z-1 modal-btn-send" data-dismiss="modal">Опубликовать</button>
+								</div>
+							</div>
+						</div>							
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="mp-photo-load" class="modal fade" tabindex="-1">
+			<div class="modal-dialog mp-modal-window">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="mdi-content-clear  modal-header__close-btn" aria-hidden="true"></span></button>
+					</div>
+					<div class="modal-body">						
+						<div class="mp-modal-window__body mp-modal-window__body--load">
+							<div class="form-group">
+								<input type="text" readonly="" class="form-control floating-label" placeholder="Загрузить аватар...">
+								<input type="file" id="load-avatar" multiple="">
+							</div>
+							<div class="form-group">
+								<input type="text" readonly="" class="form-control floating-label" placeholder="Загрузить фото...">
+								<input type="file" id="load-photo" multiple="">
+							</div>
+							<div class="form-group">
+								<input type="text" readonly="" class="form-control floating-label" placeholder="Загрузить обложку...">
+								<input type="file" id="load-cover" multiple="">
+							</div>
+							<button id="mp-modal-btn-ok" class="btn shadow-z-1 modal-btn-ok" data-dismiss="modal">OK</button>
+						</div>							
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</div> <!-- Основной контейнер конец-->
+
+	<script src="libs/jquery/jquery.js"></script> <!-- jQuery -->
+	<script src="libs/jquery/sly/sly.min.js"></script> <!-- Скролл -->
+	<script src="libs/jquery/nice-select/js/jquery.nice-select.min.js"></script>
+	<script src="libs/jquery/circle-progress/circle-progress.js"></script>
+	<script src="libs/jquery/isotope/isotope.pkgd.min.js"></script>
+	<script src="frameworks/bootstrap/js/bootstrap.min.js"></script> <!-- Bootstrap 3 -->
+	<script src="frameworks/material-bootstrap/js/material.min.js"></script> <!-- Material -->
+	<script src="frameworks/material-bootstrap/js/ripples.min.js"></script> <!-- Material framework -->
+	<script src="libs/jquery/imagelightbox/imagelightbox.js"></script> 
+	<script src="libs/jquery/imagelightbox/imagelightbox-main.js"></script> 
+	<script src="libs/jquery/device/device.min.js"></script>
+	<script src="libs/hammer/hammer.min.js"></script>
+	<script src="libs/hammer/jquery.hammer.js"></script>
+	<script src="js/main.js"></script>
+	<script>
+
+
+
+
+/*
+$(window).load(function(){
+
+var mpCover = 'cover-profile-3.jpg';
+GetCoverProfile(mpCover);
+
+});
+
+function GetCoverProfile(nameImageCover)
+{
+	$('#mp-cover-picture').css('background-image','url(../img/cover/'+nameImageCover+')');
+}
+*/
+
+</script>
+</body>
+</html>

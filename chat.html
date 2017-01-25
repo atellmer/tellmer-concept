@@ -1,0 +1,362 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Общий чат | Tellmer</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, minimal-ui, user-scalable=no">
+	<!-- Скрипт для LiveReload  -->
+
+
+	<!--Подключаем стили в этом порядке  -->
+	<link rel="stylesheet" href="frameworks/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="frameworks/material-bootstrap/css/material.min.css">
+	<link rel="stylesheet" href="frameworks/material-bootstrap/css/ripples.min.css">
+	<link rel="stylesheet" href="frameworks/material-bootstrap/css/roboto.min.css">
+	<link rel="stylesheet" href="libs/jquery/nice-select/css/nice-select.css">
+	<link rel="stylesheet" href="css/style.css?ver=">
+	<link rel="stylesheet" href="css/style-mobile.css?ver=">
+</head>
+<body>
+	<div class="container-fluid text-center"> <!-- Основной контейнер -->	
+
+		<!-- Хедер -->	
+		<header class="header no-padding">		
+			<div class="row head--desktop shadow-z-1 color-skin">
+				<div class="col-xs-4 col-sm-4 col-md-6 col-lg-6 max-height no-padding">
+					<a href="#"><div class="head__logo head__logo--desktop"></div></a>
+				</div>
+				<div class="col-xs-8 col-sm-8 col-md-6 col-lg-6 text-center max-height no-padding">
+					<div class="head__menu--desktop">
+						<a href="/chat.html" data-toggle="tooltip" data-delay="300" data-placement="bottom" data-original-title="Общий чат"><i class="mdi-communication-forum menu-item menu-item--desktop" aria-hidden="true"></i></a>	
+						<a href="/search.html" data-toggle="tooltip" data-delay="300" data-placement="bottom" data-original-title="Поиск"><i class="mdi-action-search menu-item menu-item--desktop" aria-hidden="true"></i></a>	
+						<a href="/dialogs.html" data-toggle="tooltip" data-delay="300" data-placement="bottom" data-original-title="Сообщения"><i class="mdi-communication-email menu-item menu-item--desktop" aria-hidden="true"><span class="badge menu-item__count">3</span></i></a>
+						<a href="#" data-toggle="tooltip" data-delay="300" data-placement="bottom" data-original-title="Друзья"><i class="mdi-social-person-add menu-item menu-item--desktop" aria-hidden="true"><span class="badge menu-item__count">10</span></i></a>
+						<a href="#" data-toggle="tooltip" data-delay="300" data-placement="bottom" data-original-title="Гости"><i class="mdi-social-group menu-item menu-item--desktop" aria-hidden="true"></i></a>
+						<a href="/index.html" data-toggle="tooltip" data-delay="300" data-placement="bottom" data-original-title="Мой профиль"><span class="menu-avatar menu-avatar--desktop"><img	src="img/avatar/mark.jpg" alt=""></span></a>
+						<a href="" data-toggle="tooltip" data-delay="300" data-placement="bottom" data-original-title="Выход"><i class="mdi-action-exit-to-app menu-item menu-item--desktop" aria-hidden="true"></i></a>			
+					</div>
+				</div>
+			</div>
+			<div class="row head--mobile shadow-z-1 color-skin">
+				<div class="col-xs-6 col-sm-6 max-height no-padding">
+					<a href="#"><div class="head__logo head__logo--mobile"></div></a>
+				</div>
+				<div class="col-xs-6 col-sm-6 max-height no-padding">
+					<div class="head__menu-button">
+						<button	id="menu-button" class="menu-button">
+							<i id="menu-button-icon" class="mdi-navigation-menu"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</header>	
+
+		<div class="tellmer-menu">
+			<div class="row content-menu">
+				<div class="col-xs-12 col-sm-12 no-padding max-height">	
+					<ul class="content-menu__list">
+						<li class="d-list__item"></li>
+						<a href=""><li class="d-list__item"><i class="mdi-navigation-arrow-back d-item__icon" aria-hidden="true"><span class="d-item__title">Назад</span></i></li></a>
+						<div class="divider"></div>
+						<a href="/chat.html"><li class="d-list__item"><i class="mdi-communication-forum d-item__icon" aria-hidden="true"><span class="d-item__title">Общий чат</span></i></li></a>
+						<div class="divider"></div>
+						<a href="/search.html"><li class="d-list__item"><i class="mdi-action-search d-item__icon" aria-hidden="true"><span class="d-item__title">Поиск</span></i></li></a>
+						<div class="divider"></div>
+						<a href=""><li class="d-list__item"><i class="mdi-communication-email d-item__icon" aria-hidden="true"><span class="d-item__title">Сообщения<span class="d-title__count">(3)</span></span></i></li></a>
+						<div class="divider"></div>
+						<a href=""><li class="d-list__item"><i class="mdi-social-person-add d-item__icon" aria-hidden="true"><span class="d-item__title">Друзья<span class="d-title__count">(10)</span></span></i></li></a>
+						<div class="divider"></div>
+						<a href=""><li class="d-list__item"><i class="mdi-social-group d-item__icon" aria-hidden="true"><span class="d-item__title">Гости</span></i></li></a>
+						<div class="divider"></div>
+						<a href="/index.html"><li class="d-list__item"><i class="mdi-action-face-unlock d-item__icon" aria-hidden="true"><span class="d-item__title">Мой профиль</span></i></li></a>
+						<div class="divider"></div>
+						<a href=""><li class="d-list__item"><i class="mdi-action-exit-to-app d-item__icon" aria-hidden="true"><span class="d-item__title">Выход</span></i></li></a>							
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="menu-overlay"></div>
+
+		<!-- Хедер конец-->
+
+		<div class="content">
+			<!-- Обложка -->	
+			<div class="row cover">
+				<div id="gc-cover-picture" class="row cover__picture no-padding">
+					<div id="gc-cover-color" class="row cover__color no-padding"></div>
+				</div>
+				<div class="row cover__title no-padding text-center">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<h1 id="gc-cover-title">Общий чат</h1>
+					</div>	
+				</div>
+			</div>
+
+			<!-- Карточки -->	
+			<div class="row gc">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center no-padding">
+					<!-- Карточка 1 -->	
+					<div class="card shadow-z-1 gc-card-1">
+						<div class="gc-window-chat content-scroll">
+							<!-- сообщение 1 -->	
+
+
+
+							<div class="gc-window-chat__message">
+								<div class="row gc-d-message__content no-padding">
+									<div class="col-xs-2 col-sm-2 col-md-2 no-padding">
+										<div class="gc-d-content__avatar text-center">
+											<a href="#"><img class="gc-d-avatar__img" src="img/1.jpg" alt="avatar"></a>
+										</div>
+									</div>
+									<div class="col-xs-10 col-sm-10 col-md-10 no-padding">
+										<div class="gc-d-content__post">
+											<div class="row no-padding">
+												<div class="col-xs-7 col-sm-7 col-md-7 no-padding">
+													<a href="#"><p class="gc-d-post__user">Кристина Иванова</p></a>
+												</div>
+												<div class="col-xs-5 col-sm-5 col-md-5 no-padding">
+													<p class="gc-d-post__date">19:00 29.08.2015</p>
+												</div>
+											</div>
+											<p class="gc-d-post__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem aspernatur aliquam quos consequuntur expedita, adipisci in illo pariatur incidunt, dolores delectus hic nulla modi temporibus, magnam a explicabo fugiat earum.</p>
+										</div>
+									</div>
+								</div>
+								<div class="divider"></div>
+							</div>
+
+							<div class="gc-window-chat__message">
+								<div class="row gc-d-message__content no-padding">
+									<div class="col-xs-2 col-sm-2 col-md-2 no-padding">
+										<div class="gc-d-content__avatar text-center">
+											<a href="#"><img class="gc-d-avatar__img" src="img/2.jpg" alt="avatar"></a>
+										</div>
+									</div>
+									<div class="col-xs-10 col-sm-10 col-md-10 no-padding">
+										<div class="gc-d-content__post">
+											<div class="row no-padding">
+												<div class="col-xs-7 col-sm-7 col-md-7 no-padding">
+													<a href="#"><p class="gc-d-post__user">Мария Федорова</p></a>
+												</div>
+												<div class="col-xs-5 col-sm-5 col-md-5 no-padding">
+													<p class="gc-d-post__date">19:00 29.08.2015</p>
+												</div>
+											</div>
+											<p class="gc-d-post__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem aspernatur aliquam quos consequuntur expedita, adipisci in illo pariatur incidunt, dolores delectus hic nulla modi temporibus, magnam a explicabo fugiat earum.</p>
+										</div>
+									</div>
+								</div>
+								<div class="divider"></div>
+							</div>
+
+							<div class="gc-window-chat__message">
+								<div class="row gc-d-message__content no-padding">
+									<div class="col-xs-2 col-sm-2 col-md-2 no-padding">
+										<div class="gc-d-content__avatar text-center">
+											<a href="#"><img class="gc-d-avatar__img" src="img/1.jpg" alt="avatar"></a>
+										</div>
+									</div>
+									<div class="col-xs-10 col-sm-10 col-md-10 no-padding">
+										<div class="gc-d-content__post">
+											<div class="row no-padding">
+												<div class="col-xs-7 col-sm-7 col-md-7 no-padding">
+													<a href="#"><p class="gc-d-post__user">Кристина Иванова</p></a>
+												</div>
+												<div class="col-xs-5 col-sm-5 col-md-5 no-padding">
+													<p class="gc-d-post__date">19:00 29.08.2015</p>
+												</div>
+											</div>
+											<p class="gc-d-post__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem aspernatur aliquam quos consequuntur expedita, adipisci in illo pariatur incidunt, dolores delectus hic nulla modi temporibus, magnam a explicabo fugiat earum.</p>
+										</div>
+									</div>
+								</div>
+								<div class="divider"></div>
+							</div>
+
+							<div class="gc-window-chat__message">
+								<div class="row gc-d-message__content no-padding">
+									<div class="col-xs-2 col-sm-2 col-md-2 no-padding">
+										<div class="gc-d-content__avatar text-center">
+											<a href="#"><img class="gc-d-avatar__img" src="img/2.jpg" alt="avatar"></a>
+										</div>
+									</div>
+									<div class="col-xs-10 col-sm-10 col-md-10 no-padding">
+										<div class="gc-d-content__post">
+											<div class="row no-padding">
+												<div class="col-xs-7 col-sm-7 col-md-7 no-padding">
+													<a href="#"><p class="gc-d-post__user">Мария Федорова</p></a>
+												</div>
+												<div class="col-xs-5 col-sm-5 col-md-5 no-padding">
+													<p class="gc-d-post__date">19:00 29.08.2015</p>
+												</div>
+											</div>
+											<p class="gc-d-post__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem aspernatur aliquam quos consequuntur expedita, adipisci in illo pariatur incidunt, dolores delectus hic nulla modi temporibus, magnam a explicabo fugiat earum.</p>
+										</div>
+									</div>
+								</div>
+								<div class="divider"></div>
+							</div>
+
+							<div class="gc-window-chat__message">
+								<div class="row gc-d-message__content no-padding">
+									<div class="col-xs-2 col-sm-2 col-md-2 no-padding">
+										<div class="gc-d-content__avatar text-center">
+											<a href="#"><img class="gc-d-avatar__img" src="img/1.jpg" alt="avatar"></a>
+										</div>
+									</div>
+									<div class="col-xs-10 col-sm-10 col-md-10 no-padding">
+										<div class="gc-d-content__post">
+											<div class="row no-padding">
+												<div class="col-xs-7 col-sm-7 col-md-7 no-padding">
+													<a href="#"><p class="gc-d-post__user">Кристина Иванова</p></a>
+												</div>
+												<div class="col-xs-5 col-sm-5 col-md-5 no-padding">
+													<p class="gc-d-post__date">19:00 29.08.2015</p>
+												</div>
+											</div>
+											<p class="gc-d-post__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem aspernatur aliquam quos consequuntur expedita, adipisci in illo pariatur incidunt, dolores delectus hic nulla modi temporibus, magnam a explicabo fugiat earum.</p>
+										</div>
+									</div>
+								</div>
+								<div class="divider"></div>
+							</div>
+
+							<div class="gc-window-chat__message">
+								<div class="row gc-d-message__content no-padding">
+									<div class="col-xs-2 col-sm-2 col-md-2 no-padding">
+										<div class="gc-d-content__avatar text-center">
+											<a href="#"><img class="gc-d-avatar__img" src="img/2.jpg" alt="avatar"></a>
+										</div>
+									</div>
+									<div class="col-xs-10 col-sm-10 col-md-10 no-padding">
+										<div class="gc-d-content__post">
+											<div class="row no-padding">
+												<div class="col-xs-7 col-sm-7 col-md-7 no-padding">
+													<a href="#"><p class="gc-d-post__user">Мария Федорова</p></a>
+												</div>
+												<div class="col-xs-5 col-sm-5 col-md-5 no-padding">
+													<p class="gc-d-post__date">19:00 29.08.2015</p>
+												</div>
+											</div>
+											<p class="gc-d-post__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem aspernatur aliquam quos consequuntur expedita, adipisci in illo pariatur incidunt, dolores delectus hic nulla modi temporibus, magnam a explicabo fugiat earum.</p>
+										</div>
+									</div>
+								</div>
+								<div class="divider"></div>
+							</div>
+
+							<div class="gc-window-chat__message">
+								<div class="row gc-d-message__content no-padding">
+									<div class="col-xs-2 col-sm-2 col-md-2 no-padding">
+										<div class="gc-d-content__avatar text-center">
+											<a href="#"><img class="gc-d-avatar__img" src="img/1.jpg" alt="avatar"></a>
+										</div>
+									</div>
+									<div class="col-xs-10 col-sm-10 col-md-10 no-padding">
+										<div class="gc-d-content__post">
+											<div class="row no-padding">
+												<div class="col-xs-7 col-sm-7 col-md-7 no-padding">
+													<a href="#"><p class="gc-d-post__user">Кристина Иванова</p></a>
+												</div>
+												<div class="col-xs-5 col-sm-5 col-md-5 no-padding">
+													<p class="gc-d-post__date">19:00 29.08.2015</p>
+												</div>
+											</div>
+											<p class="gc-d-post__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem aspernatur aliquam quos consequuntur expedita, adipisci in illo pariatur incidunt, dolores delectus hic nulla modi temporibus, magnam a explicabo fugiat earum.</p>
+										</div>
+									</div>
+								</div>
+								<div class="divider"></div>
+							</div>
+
+							<div class="gc-window-chat__message">
+								<div class="row gc-d-message__content no-padding">
+									<div class="col-xs-2 col-sm-2 col-md-2 no-padding">
+										<div class="gc-d-content__avatar text-center">
+											<a href="#"><img class="gc-d-avatar__img" src="img/2.jpg" alt="avatar"></a>
+										</div>
+									</div>
+									<div class="col-xs-10 col-sm-10 col-md-10 no-padding">
+										<div class="gc-d-content__post">
+											<div class="row no-padding">
+												<div class="col-xs-7 col-sm-7 col-md-7 no-padding">
+													<a href="#"><p class="gc-d-post__user">Мария Федорова</p></a>
+												</div>
+												<div class="col-xs-5 col-sm-5 col-md-5 no-padding">
+													<p class="gc-d-post__date">19:00 29.08.2015</p>
+												</div>
+											</div>
+											<p class="gc-d-post__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem aspernatur aliquam quos consequuntur expedita, adipisci in illo pariatur incidunt, dolores delectus hic nulla modi temporibus, magnam a explicabo fugiat earum.</p>
+										</div>
+									</div>
+								</div>
+								<div class="divider"></div>
+							</div>
+
+
+
+						</div>
+
+						<!-- контроллы -->	
+						<div class="gc-control--phone">	
+							<button id="gc-btn-fixed" class="btn btn-fab mdi-communication-chat gc-control__btn" data-toggle="modal" data-target="#gc-popup-send"></button>
+						</div>
+
+						<div id="gc-my-float-btn" class="float-btn">
+							<div class="sub-btn display-none">
+								<div class="button-sub shadow-z-1" data-color="green"><span class="mdi-communication-chat" aria-hidden="true" data-toggle="modal" data-target="#gc-popup-send"></span></div>
+								<div id="gc-btn-top" class="button-sub shadow-z-1" data-color="blue"><span class="mdi-navigation-expand-less" aria-hidden="true"></span></div>
+							</div>
+							<div class="button-floating-shadow shadow-z-1"></div>
+							<button id="float-btn" class="btn btn-fab btn-raised mdi-content-add button-floating"></button>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+
+		<div id="gc-popup-send" class="modal fade" tabindex="-1">
+			<div class="modal-dialog gc-modal-window">
+				<div class="modal-content ">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="mdi-content-clear modal-header__close-btn" aria-hidden="true"></span></button>
+					</div>
+					<div class="modal-body">						
+						<div class="gc-modal-window__body">
+							<textarea id="gc-modal-textarea" class="form-control" placeholder="Введите ваше сообщение"></textarea>
+							<button id="gc-modal-btn-send" class="btn shadow-z-1" data-dismiss="modal">Отправить</button>
+						</div>							
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div> <!-- Основной контейнер конец-->
+
+	<script src="libs/jquery/jquery.js"></script> <!-- jQuery -->
+	<script src="libs/jquery/sly/sly.min.js"></script> <!-- Скролл -->
+	<script src="libs/jquery/nice-select/js/jquery.nice-select.min.js"></script>
+	<script src="libs/jquery/circle-progress/circle-progress.js"></script>
+	<script src="libs/jquery/isotope/isotope.pkgd.min.js"></script>
+	<script src="frameworks/bootstrap/js/bootstrap.min.js"></script> <!-- Bootstrap 3 -->
+	<script src="frameworks/material-bootstrap/js/material.min.js"></script> <!-- Material -->
+	<script src="frameworks/material-bootstrap/js/ripples.min.js"></script> <!-- Material framework -->
+	<script src="libs/jquery/imagelightbox/imagelightbox.js"></script> 
+	<script src="libs/jquery/imagelightbox/imagelightbox-main.js"></script> 
+	<script src="libs/jquery/device/device.min.js"></script>
+	<script src="libs/hammer/hammer.min.js"></script>
+	<script src="libs/hammer/jquery.hammer.js"></script>
+	<script src="js/main.js"></script>
+	<script>
+
+
+
+
+	</script>
+</body>
+</html>
+

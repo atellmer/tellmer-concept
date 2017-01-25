@@ -1,0 +1,931 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Диалоги | Tellmer</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, minimal-ui, user-scalable=no">
+	<!--Подключаем стили в этом порядке  -->
+	<link rel="stylesheet" href="frameworks/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="frameworks/material-bootstrap/css/material.min.css">
+	<link rel="stylesheet" href="frameworks/material-bootstrap/css/ripples.min.css">
+	<link rel="stylesheet" href="frameworks/material-bootstrap/css/roboto.min.css">
+	<link rel="stylesheet" href="libs/jquery/nice-select/css/nice-select.css">
+	<link rel="stylesheet" href="css/style.css?ver=">
+	<link rel="stylesheet" href="css/style-mobile.css?ver=">
+</head>
+<body>
+	<div class="container-fluid text-center"> <!-- Основной контейнер -->	
+
+		<!-- Хедер -->	
+		<header class="header no-padding">		
+			<div class="row head--desktop shadow-z-1 color-skin">
+				<div class="col-xs-4 col-sm-4 col-md-6 col-lg-6 max-height no-padding">
+					<a href="#"><div class="head__logo head__logo--desktop"></div></a>
+				</div>
+				<div class="col-xs-8 col-sm-8 col-md-6 col-lg-6 text-center max-height no-padding">
+					<div class="head__menu--desktop">
+						<a href="/chat.html" data-toggle="tooltip" data-delay="300" data-placement="bottom" data-original-title="Общий чат"><i class="mdi-communication-forum menu-item menu-item--desktop" aria-hidden="true"></i></a>	
+						<a href="/search.html" data-toggle="tooltip" data-delay="300" data-placement="bottom" data-original-title="Поиск"><i class="mdi-action-search menu-item menu-item--desktop" aria-hidden="true"></i></a>	
+						<a href="/dialogs.html" data-toggle="tooltip" data-delay="300" data-placement="bottom" data-original-title="Сообщения"><i class="mdi-communication-email menu-item menu-item--desktop" aria-hidden="true"><span class="badge menu-item__count">3</span></i></a>
+						<a href="#" data-toggle="tooltip" data-delay="300" data-placement="bottom" data-original-title="Друзья"><i class="mdi-social-person-add menu-item menu-item--desktop" aria-hidden="true"><span class="badge menu-item__count">10</span></i></a>
+						<a href="#" data-toggle="tooltip" data-delay="300" data-placement="bottom" data-original-title="Гости"><i class="mdi-social-group menu-item menu-item--desktop" aria-hidden="true"></i></a>
+						<a href="/index.html" data-toggle="tooltip" data-delay="300" data-placement="bottom" data-original-title="Мой профиль"><span class="menu-avatar menu-avatar--desktop"><img	src="img/avatar/mark.jpg" alt=""></span></a>
+						<a href="" data-toggle="tooltip" data-delay="300" data-placement="bottom" data-original-title="Выход"><i class="mdi-action-exit-to-app menu-item menu-item--desktop" aria-hidden="true"></i></a>			
+					</div>
+				</div>
+			</div>
+			<div class="row head--mobile shadow-z-1 color-skin">
+				<div class="col-xs-6 col-sm-6 max-height no-padding">
+					<a href="#" class="head__logo-link"><div class="head__logo head__logo--mobile"></div></a>
+					<div class="dg-dialog-back display-none">
+						<i class="mdi-navigation-arrow-back dg-d-btn__icon" aria-hidden="true"></i>
+					</div>
+				</div>
+				<div class="col-xs-6 col-sm-6 max-height no-padding">
+					<div class="head__menu-button">
+						<button	id="menu-button" class="menu-button">
+							<i id="menu-button-icon" class="mdi-navigation-menu"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</header>	
+
+		<div class="tellmer-menu">
+			<div class="row content-menu">
+				<div class="col-xs-12 col-sm-12 no-padding max-height">	
+					<ul class="content-menu__list">
+						<li class="d-list__item"></li>
+						<a href=""><li class="d-list__item"><i class="mdi-navigation-arrow-back d-item__icon" aria-hidden="true"><span class="d-item__title">Назад</span></i></li></a>
+						<div class="divider"></div>
+						<a href="/chat.html"><li class="d-list__item"><i class="mdi-communication-forum d-item__icon" aria-hidden="true"><span class="d-item__title">Общий чат</span></i></li></a>
+						<div class="divider"></div>
+						<a href="/search.html"><li class="d-list__item"><i class="mdi-action-search d-item__icon" aria-hidden="true"><span class="d-item__title">Поиск</span></i></li></a>
+						<div class="divider"></div>
+						<a href=""><li class="d-list__item"><i class="mdi-communication-email d-item__icon" aria-hidden="true"><span class="d-item__title">Сообщения<span class="d-title__count">(3)</span></span></i></li></a>
+						<div class="divider"></div>
+						<a href=""><li class="d-list__item"><i class="mdi-social-person-add d-item__icon" aria-hidden="true"><span class="d-item__title">Друзья<span class="d-title__count">(10)</span></span></i></li></a>
+						<div class="divider"></div>
+						<a href=""><li class="d-list__item"><i class="mdi-social-group d-item__icon" aria-hidden="true"><span class="d-item__title">Гости</span></i></li></a>
+						<div class="divider"></div>
+						<a href="/index.html"><li class="d-list__item"><i class="mdi-action-face-unlock d-item__icon" aria-hidden="true"><span class="d-item__title">Мой профиль</span></i></li></a>
+						<div class="divider"></div>
+						<a href=""><li class="d-list__item"><i class="mdi-action-exit-to-app d-item__icon" aria-hidden="true"><span class="d-item__title">Выход</span></i></li></a>							
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="menu-overlay"></div>
+
+		<!-- Хедер конец-->
+
+		<div class="content">
+			<!-- Обложка -->	
+			<div class="row cover">
+				<div id="dg-cover-picture" class="row cover__picture no-padding">
+					<div id="dg-cover-color" class="row cover__color no-padding"></div>
+				</div>	
+			</div>
+
+			<!-- Карточки -->	
+			<div class="row dg">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
+					<div class="center-card"></div>
+
+
+					<!-- Карточка 1 -->	
+					<div class="card shadow-z-1 dg-card-1">
+						<div class="dg-dialogs">
+							<div class="row max-height no-padding">
+								<div class="col-xs-12 col-sm-5 col-md-4 col-lg-3 max-height no-padding dialogs-container">
+									
+
+									<div class="badge-title badge-title--dialogs">
+										<span class="badge-title__span badge-title--dialogs__span">Диалоги</span>
+									</div>
+									<div class="search">
+										<i class="mdi-action-search search__icon" aria-hidden="true"></i>
+										<input id="search-dialog" type="text" class="form-control dialog-input-search" placeholder="Поиск">
+									</div>
+
+									<div class="dg-dialog-content frame-dialogs">
+
+										<div class="scrollbar scroll-dialogs scrollbar--dialog">
+											<div class="handle">
+												<div class="mousearea"></div>
+											</div>
+										</div>
+
+
+										<div class="dg-select-dialog slide-dialogs">
+
+
+											<div aria-haspopup="true" class="dg-select-dialog__item">
+												<div class="row no-padding dg-d-item__dialog-container">
+													<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 dg-d-dialog-container__avatar">	
+														<a href="#"><img class="dg-d-avatar__dialog-avatar" src="img/1.jpg"></a>
+														<div class="dg-d-avatar__container-point">								
+															<i class="mdi-image-lens mp-d-name__point mp-d-name__point--online dg-d-container-point__point" aria-hidden="true"></i>	
+														</div>												
+													</div>
+													<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 no-padding dg-d-dialog-container__snippet">
+														<div class="row no-padding">
+															<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding dg-d-snippet__user">
+																<a href="#">Нина Ковалева</a>
+															</div>
+															<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding dg-d-snippet__date">
+																<p class="dg-d-date__value">19:00 29.08.2015</p>
+															</div>
+															<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding dg-d-snippet__text">
+																<p class="dg-d-text__value">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, ad, debitis. debitis. debitis.</p>
+															</div>
+														</div>
+														<i class="mdi-content-clear dg-d-dialog-container__close" aria-hidden="true"></i>
+													</div>
+												</div>										
+												<div class="divider"></div>
+											</div>
+
+
+											<div aria-haspopup="true" class="dg-select-dialog__item dg-select-dialog__item--new">
+												<div class="row no-padding dg-d-item__dialog-container">
+													<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 dg-d-dialog-container__avatar">	
+														<a href="#"><img class="dg-d-avatar__dialog-avatar" src="img/13.jpg"></a>
+														<div class="dg-d-avatar__container-point">								
+															<i class="mdi-image-lens mp-d-name__point mp-d-name__point--offline dg-d-container-point__point" aria-hidden="true"></i>	
+														</div>												
+													</div>
+													<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 no-padding dg-d-dialog-container__snippet">
+														<div class="row no-padding">
+															<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding dg-d-snippet__user">
+																<a href="#">Валерка Питерский</a>
+															</div>
+															<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding dg-d-snippet__date">
+																<p class="dg-d-date__value">19:00 29.08.2015</p>
+															</div>
+															<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding dg-d-snippet__text">
+																<p class="dg-d-text__value">Я тибя по айпи вычислю ска!</p>
+															</div>
+														</div>
+														<i class="mdi-content-clear dg-d-dialog-container__close" aria-hidden="true"></i>
+													</div>
+												</div>										
+												<div class="divider"></div>
+											</div>
+
+
+											<div aria-haspopup="true" class="dg-select-dialog__item dg-select-dialog__item--new">
+												<div class="row no-padding dg-d-item__dialog-container">
+													<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 dg-d-dialog-container__avatar">	
+														<a href="#"><img class="dg-d-avatar__dialog-avatar" src="img/2.jpg"></a>
+														<div class="dg-d-avatar__container-point">								
+															<i class="mdi-image-lens mp-d-name__point mp-d-name__point--online dg-d-container-point__point" aria-hidden="true"></i>	
+														</div>												
+													</div>
+													<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 no-padding dg-d-dialog-container__snippet">
+														<div class="row no-padding">
+															<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding dg-d-snippet__user">
+																<a href="#">Нина Ковалева</a>
+															</div>
+															<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding dg-d-snippet__date">
+																<p class="dg-d-date__value">19:00 29.08.2015</p>
+															</div>
+															<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding dg-d-snippet__text">
+																<p class="dg-d-text__value">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, ad, debitis. debitis. debitis.</p>
+															</div>
+														</div>
+														<i class="mdi-content-clear dg-d-dialog-container__close" aria-hidden="true"></i>
+													</div>
+												</div>										
+												<div class="divider"></div>
+											</div>
+
+
+											<div aria-haspopup="true" class="dg-select-dialog__item dg-select-dialog__item--new">
+												<div class="row no-padding dg-d-item__dialog-container">
+													<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 dg-d-dialog-container__avatar">	
+														<a href="#"><img class="dg-d-avatar__dialog-avatar" src="img/3.jpg"></a>
+														<div class="dg-d-avatar__container-point">								
+															<i class="mdi-image-lens mp-d-name__point mp-d-name__point--offline dg-d-container-point__point" aria-hidden="true"></i>	
+														</div>												
+													</div>
+													<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 no-padding dg-d-dialog-container__snippet">
+														<div class="row no-padding">
+															<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding dg-d-snippet__user">
+																<a href="#">Нина Ковалева</a>
+															</div>
+															<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding dg-d-snippet__date">
+																<p class="dg-d-date__value">19:00 29.08.2015</p>
+															</div>
+															<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding dg-d-snippet__text">
+																<p class="dg-d-text__value">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, ad, debitis. debitis. debitis.</p>
+															</div>
+														</div>
+														<i class="mdi-content-clear dg-d-dialog-container__close" aria-hidden="true"></i>
+													</div>
+												</div>										
+												<div class="divider"></div>
+											</div>
+
+
+
+											<div aria-haspopup="true" class="dg-select-dialog__item">
+												<div class="row no-padding dg-d-item__dialog-container">
+													<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 dg-d-dialog-container__avatar">	
+														<a href="#"><img class="dg-d-avatar__dialog-avatar" src="img/4.jpg"></a>
+														<div class="dg-d-avatar__container-point">								
+															<i class="mdi-image-lens mp-d-name__point mp-d-name__point--online dg-d-container-point__point" aria-hidden="true"></i>	
+														</div>												
+													</div>
+													<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 no-padding dg-d-dialog-container__snippet">
+														<div class="row no-padding">
+															<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding dg-d-snippet__user">
+																<a href="#">Нина Ковалева</a>
+															</div>
+															<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding dg-d-snippet__date">
+																<p class="dg-d-date__value">19:00 29.08.2015</p>
+															</div>
+															<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding dg-d-snippet__text">
+																<p class="dg-d-text__value">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, ad, debitis. debitis. debitis.</p>
+															</div>
+														</div>
+														<i class="mdi-content-clear dg-d-dialog-container__close" aria-hidden="true"></i>
+													</div>
+												</div>										
+												<div class="divider"></div>
+											</div>
+
+
+											<div aria-haspopup="true" class="dg-select-dialog__item">
+												<div class="row no-padding dg-d-item__dialog-container">
+													<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 dg-d-dialog-container__avatar">	
+														<a href="#"><img class="dg-d-avatar__dialog-avatar" src="img/5.jpg"></a>
+														<div class="dg-d-avatar__container-point">								
+															<i class="mdi-image-lens mp-d-name__point mp-d-name__point--offline dg-d-container-point__point" aria-hidden="true"></i>	
+														</div>												
+													</div>
+													<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 no-padding dg-d-dialog-container__snippet">
+														<div class="row no-padding">
+															<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding dg-d-snippet__user">
+																<a href="#">Нина Ковалева</a>
+															</div>
+															<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding dg-d-snippet__date">
+																<p class="dg-d-date__value">19:00 29.08.2015</p>
+															</div>
+															<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding dg-d-snippet__text">
+																<p class="dg-d-text__value">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, ad, debitis. debitis. debitis.</p>
+															</div>
+														</div>
+														<i class="mdi-content-clear dg-d-dialog-container__close" aria-hidden="true"></i>
+													</div>
+												</div>										
+												<div class="divider"></div>
+											</div>
+
+
+
+											<div aria-haspopup="true" class="dg-select-dialog__item">
+												<div class="row no-padding dg-d-item__dialog-container">
+													<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 dg-d-dialog-container__avatar">	
+														<a href="#"><img class="dg-d-avatar__dialog-avatar" src="img/6.jpg"></a>
+														<div class="dg-d-avatar__container-point">								
+															<i class="mdi-image-lens mp-d-name__point mp-d-name__point--online dg-d-container-point__point" aria-hidden="true"></i>	
+														</div>												
+													</div>
+													<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 no-padding dg-d-dialog-container__snippet">
+														<div class="row no-padding">
+															<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding dg-d-snippet__user">
+																<a href="#">Нина Ковалева</a>
+															</div>
+															<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding dg-d-snippet__date">
+																<p class="dg-d-date__value">19:00 29.08.2015</p>
+															</div>
+															<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding dg-d-snippet__text">
+																<p class="dg-d-text__value">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, ad, debitis. debitis. debitis.</p>
+															</div>
+														</div>
+														<i class="mdi-content-clear dg-d-dialog-container__close" aria-hidden="true"></i>
+													</div>
+												</div>										
+												<div class="divider"></div>
+											</div>
+
+
+											<div aria-haspopup="true" class="dg-select-dialog__item">
+												<div class="row no-padding dg-d-item__dialog-container">
+													<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 dg-d-dialog-container__avatar">	
+														<a href="#"><img class="dg-d-avatar__dialog-avatar" src="img/7.jpg"></a>
+														<div class="dg-d-avatar__container-point">								
+															<i class="mdi-image-lens mp-d-name__point mp-d-name__point--offline dg-d-container-point__point" aria-hidden="true"></i>	
+														</div>												
+													</div>
+													<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 no-padding dg-d-dialog-container__snippet">
+														<div class="row no-padding">
+															<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding dg-d-snippet__user">
+																<a href="#">Нина Ковалева</a>
+															</div>
+															<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding dg-d-snippet__date">
+																<p class="dg-d-date__value">19:00 29.08.2015</p>
+															</div>
+															<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding dg-d-snippet__text">
+																<p class="dg-d-text__value">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, ad, debitis. debitis. debitis.</p>
+															</div>
+														</div>
+														<i class="mdi-content-clear dg-d-dialog-container__close" aria-hidden="true"></i>
+													</div>
+												</div>										
+												<div class="divider"></div>
+											</div>
+
+
+										</div>
+									</div>
+								</div>
+
+								<div class="col-xs-12 col-sm-7 col-md-8 col-lg-9 max-height no-padding message-container">
+
+									<div class="dg-chat-header">
+										<div class="row no-padding max-height">
+											<div class="col-xs-3 col-sm-2 col-md-2 col-lg-1 no-padding max-height">
+												<div class="dg-chat-header__avatar">
+													<a href="#"><img class="dg-d-avatar__img" src="img/1.jpg" alt=""></a>
+												</div>
+											</div>
+											<div class="col-xs-9 col-sm-10 col-md-10 col-lg-11 no-padding max-height">
+												<div class="dg-chat-header__user vertical-table">
+													<span class="dg-d-user__name vertical-table-cell"><a class="dg-d-name__link" href="#">Нина Ковалева</a></span>
+												</div>
+											</div>
+										</div>	
+									</div>
+
+
+									<div class="dg-chat-container frame-messages">
+										<div class="scrollbar scroll-messages scrollbar--message">
+											<div class="handle">
+												<div class="mousearea"></div>
+											</div>
+										</div>
+										<div class="dg-chat-content slide-messages">
+											
+
+
+											<div class="dg-d-content__item-message">
+												<div class="row no-padding dg-d-item-message__content">
+													<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 no-padding dg-d-content__avatar">
+														<a href="#"><img class="dg-d-message-avatar__img" src="img/1.jpg" alt=""></a>
+													</div>
+													<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 no-padding dg-d-content__message-post">
+														<div class="dg-d-message-post__user">
+															<a class="dg-d-user__user-link" href="#">Нина Ковалева</a>
+														</div>
+														<div class="dg-d-message-post__text">
+															<p class="dg-d-text__p">
+																Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias recusandae voluptates quo quidem ullam id porro, quam. Earum perferendis eum, facere beatae in aut aspernatur quis quisquam non illo numquam!
+															</p>
+														</div>	
+													</div>
+												</div>
+												<div class="divider"></div>
+											</div>
+
+											<div class="dg-d-content__item-message">
+												<div class="row no-padding dg-d-item-message__content">
+													<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 no-padding dg-d-content__avatar">
+														<a href="#"><img class="dg-d-message-avatar__img" src="img/mark2.jpg" alt=""></a>
+													</div>
+													<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 no-padding dg-d-content__message-post">
+														<div class="dg-d-message-post__user">
+															<a class="dg-d-user__user-link" href="#">Mark Zuckerberg</a>
+														</div>
+														<div class="dg-d-message-post__text">
+															<p class="dg-d-text__p">
+																Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias recusandae voluptates quo quidem ullam id porro, quam. Earum perferendis eum, facere beatae in aut aspernatur quis quisquam non illo numquam! 
+															</p>
+														</div>	
+													</div>
+												</div>
+												<div class="divider"></div>
+											</div>
+
+											<div class="dg-d-content__item-message">
+												<div class="row no-padding dg-d-item-message__content">
+													<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 no-padding dg-d-content__avatar">
+														<a href="#"><img class="dg-d-message-avatar__img" src="img/1.jpg" alt=""></a>
+													</div>
+													<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 no-padding dg-d-content__message-post">
+														<div class="dg-d-message-post__user">
+															<a class="dg-d-user__user-link" href="#">Нина Ковалева</a>
+														</div>
+														<div class="dg-d-message-post__text">
+															<p class="dg-d-text__p">
+																Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias recusandae voluptates quo quidem ullam id porro, quam. Earum perferendis eum, facere beatae in aut aspernatur quis quisquam non illo numquam!
+															</p>
+														</div>	
+													</div>
+												</div>
+												<div class="divider"></div>
+											</div>
+
+											<div class="dg-d-content__item-message">
+												<div class="row no-padding dg-d-item-message__content">
+													<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 no-padding dg-d-content__avatar">
+														<a href="#"><img class="dg-d-message-avatar__img" src="img/mark2.jpg" alt=""></a>
+													</div>
+													<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 no-padding dg-d-content__message-post">
+														<div class="dg-d-message-post__user">
+															<a class="dg-d-user__user-link" href="#">Mark Zuckerberg</a>
+														</div>
+														<div class="dg-d-message-post__text">
+															<p class="dg-d-text__p">
+																Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias recusandae voluptates quo quidem ullam id porro, quam. Earum perferendis eum, facere beatae in aut aspernatur quis quisquam non illo numquam! 
+															</p>
+														</div>	
+													</div>
+												</div>
+												<div class="divider"></div>
+											</div>
+
+
+											<div class="dg-d-content__item-message">
+												<div class="row no-padding dg-d-item-message__content">
+													<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 no-padding dg-d-content__avatar">
+														<a href="#"><img class="dg-d-message-avatar__img" src="img/1.jpg" alt=""></a>
+													</div>
+													<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 no-padding dg-d-content__message-post">
+														<div class="dg-d-message-post__user">
+															<a class="dg-d-user__user-link" href="#">Нина Ковалева</a>
+														</div>
+														<div class="dg-d-message-post__text">
+															<p class="dg-d-text__p">
+																Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias recusandae voluptates quo quidem ullam id porro, quam. Earum perferendis eum, facere beatae in aut aspernatur quis quisquam non illo numquam!
+															</p>
+														</div>	
+													</div>
+												</div>
+												<div class="divider"></div>
+											</div>
+
+											<div class="dg-d-content__item-message">
+												<div class="row no-padding dg-d-item-message__content">
+													<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 no-padding dg-d-content__avatar">
+														<a href="#"><img class="dg-d-message-avatar__img" src="img/mark2.jpg" alt=""></a>
+													</div>
+													<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 no-padding dg-d-content__message-post">
+														<div class="dg-d-message-post__user">
+															<a class="dg-d-user__user-link" href="#">Mark Zuckerberg</a>
+														</div>
+														<div class="dg-d-message-post__text">
+															<p class="dg-d-text__p">
+																Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias recusandae voluptates quo quidem ullam id porro, quam. Earum perferendis eum, facere beatae in aut aspernatur quis quisquam non illo numquam! 
+															</p>
+														</div>	
+													</div>
+												</div>
+												<div class="divider"></div>
+											</div>
+
+
+											<div class="dg-d-content__item-message">
+												<div class="row no-padding dg-d-item-message__content">
+													<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 no-padding dg-d-content__avatar">
+														<a href="#"><img class="dg-d-message-avatar__img" src="img/1.jpg" alt=""></a>
+													</div>
+													<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 no-padding dg-d-content__message-post">
+														<div class="dg-d-message-post__user">
+															<a class="dg-d-user__user-link" href="#">Нина Ковалева</a>
+														</div>
+														<div class="dg-d-message-post__text">
+															<p class="dg-d-text__p">
+																Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias recusandae voluptates quo quidem ullam id porro, quam. Earum perferendis eum, facere beatae in aut aspernatur quis quisquam non illo numquam!
+															</p>
+														</div>	
+													</div>
+												</div>
+												<div class="divider"></div>
+											</div>
+
+											<div class="dg-d-content__item-message">
+												<div class="row no-padding dg-d-item-message__content">
+													<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 no-padding dg-d-content__avatar">
+														<a href="#"><img class="dg-d-message-avatar__img" src="img/mark2.jpg" alt=""></a>
+													</div>
+													<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 no-padding dg-d-content__message-post">
+														<div class="dg-d-message-post__user">
+															<a class="dg-d-user__user-link" href="#">Mark Zuckerberg</a>
+														</div>
+														<div class="dg-d-message-post__text">
+															<p class="dg-d-text__p">
+																Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias recusandae voluptates quo quidem ullam id porro, quam. Earum perferendis eum, facere beatae in aut aspernatur quis quisquam non illo numquam! 
+															</p>
+														</div>	
+													</div>
+												</div>
+												<div class="divider"></div>
+											</div>
+
+
+										</div>
+									</div>
+
+									<div class="dg-dialog-controls">
+										<div class="dg-dialogs-controls__smiles">
+											<i class="mdi-editor-insert-emoticon dg-d-smiles__icon" aria-hidden="true"></i>
+										</div>
+										<textarea class="form-control dg-dialog-controls__textarea" placeholder="Cообщение..."></textarea>
+										<button id="myBtn" class="btn shadow-z-1 dg-dialog-controls__btn-send--desktop"><i class="mdi-content-send dg-d-btn-send--desktop__icon" aria-hidden="true"></i></button>
+										<button id="" class="btn btn-fab shadow-z-1 dg-dialog-controls__btn-send--mobile display-none"><i class="mdi-content-send dg-d-btn-send__icon" aria-hidden="true"></i></button>
+									</div>
+								</div>
+
+								<div class="col-xs-12 col-sm-5 col-md-4 col-lg-3"></div>
+								<div class="col-xs-12 col-sm-7 col-md-8 col-lg-9">
+									<div class="dg-dialogs-controls__smiles-window frame-smiles display-none">
+										<div class="scrollbar scroll-smiles scrollbar--smiles">
+											<div class="handle">
+												<div class="mousearea"></div>
+											</div>
+										</div>
+										<div class="slide-smiles">
+
+											<div class="row no-padding">
+												<div class="col-xs-3 no-padding">
+													<img class="sticker" src="img/stickers/128/1.png" alt="">
+												</div>
+												<div class="col-xs-3 no-padding">
+													<img class="sticker" src="img/stickers/128/2.png" alt="">
+												</div>
+												<div class="col-xs-3 no-padding">
+													<img class="sticker" src="img/stickers/128/3.png" alt="">
+												</div>
+												<div class="col-xs-3 no-padding">
+													<img class="sticker" src="img/stickers/128/4.png" alt="">
+												</div>
+											</div>							
+
+											<div class="row no-padding">
+												<div class="col-xs-3 no-padding">
+													<img class="sticker" src="img/stickers/128/5.png" alt="">
+												</div>
+												<div class="col-xs-3 no-padding">
+													<img class="sticker" src="img/stickers/128/6.png" alt="">
+												</div>
+												<div class="col-xs-3 no-padding">
+													<img class="sticker" src="img/stickers/128/7.png" alt="">
+												</div>
+												<div class="col-xs-3 no-padding">
+													<img class="sticker" src="img/stickers/128/8.png" alt="">
+												</div>
+											</div>
+
+											<div class="row no-padding">
+												<div class="col-xs-3 no-padding">
+													<img class="sticker" src="img/stickers/128/9.png" alt="">
+												</div>
+												<div class="col-xs-3 no-padding">
+													<img class="sticker" src="img/stickers/128/10.png" alt="">
+												</div>
+												<div class="col-xs-3 no-padding">
+													<img class="sticker" src="img/stickers/128/11.png" alt="">
+												</div>
+												<div class="col-xs-3 no-padding">
+													<img class="sticker" src="img/stickers/128/12.png" alt="">
+												</div>
+											</div>
+
+
+
+										</div>
+									</div>
+								</div>
+
+
+
+
+
+							</div>
+
+
+						</div>
+
+
+					</div>
+
+
+
+				</div>
+
+			</div>
+		</div>
+
+		
+
+
+
+	</div> <!-- Основной контейнер конец-->
+
+	<script src="libs/jquery/jquery.js"></script> <!-- jQuery -->
+	<script src="libs/jquery/sly/sly.min.js"></script> <!-- Скролл -->
+	<script src="libs/jquery/nice-select/js/jquery.nice-select.min.js"></script>
+	<script src="libs/jquery/circle-progress/circle-progress.js"></script>
+	<script src="libs/jquery/isotope/isotope.pkgd.min.js"></script>
+	<script src="frameworks/bootstrap/js/bootstrap.min.js"></script> <!-- Bootstrap 3 -->
+	<script src="frameworks/material-bootstrap/js/material.min.js"></script> <!-- Material -->
+	<script src="frameworks/material-bootstrap/js/ripples.min.js"></script> <!-- Material framework -->
+	<script src="libs/jquery/imagelightbox/imagelightbox.js"></script> 
+	<script src="libs/jquery/imagelightbox/imagelightbox-main.js"></script> 
+	<script src="libs/jquery/device/device.min.js"></script>
+	<script src="libs/hammer/hammer.min.js"></script>
+	<script src="libs/hammer/jquery.hammer.js"></script>
+	<script src="js/main.js"></script>
+	<script>
+
+
+//Переменные
+var phonePx = 480;
+var tabletPx = 768;
+var header = $('.header');
+var body = $('body');
+
+
+
+//Объект 'Скролл'
+function Scroll(frame, slide, scroll)
+{
+	this._frame = frame;
+	this._slide = slide;
+	this._scroll = scroll;
+}
+Scroll.prototype.exist = false;
+Scroll.prototype.build = function()
+{
+	var options = {
+		slidee: this._slide,
+		itemNav: 'basic',
+		scrollBar: this._scroll,
+		dragHandle: 1,
+		dynamicHandle: 1,
+		scrollBy: 1,
+		speed: 300,
+		scrollTrap: 1,
+		smart: 1,
+		elasticBounds: 1,
+		touchDragging: 1,
+		releaseSwing: 1
+	};		
+	this._frame.sly(options);
+}
+Scroll.prototype.destroy = function()
+{
+	this._frame.sly(false);
+}
+Scroll.prototype.reload = function()
+{
+	this._frame.sly('reload');
+}
+
+
+//Блок скролла -- начало
+var scrollDialogs = new Scroll($('.frame-dialogs'), $('.slide-dialogs'), $('.scroll-dialogs'));
+var scrollMessages = new Scroll($('.frame-messages'), $('.slide-messages'), $('.scroll-messages'));
+
+//события над объектом 'Скролл'
+$(window).load(slyEventHandler);
+$(document).ready(slyEventHandler);
+$(window).resize(slyEventHandler);
+
+//Обрабочики событий над объектом 'Скролл'
+function slyEventHandler()
+{
+	SlyManager(tabletPx);
+	if(Scroll.prototype.exist)
+	{
+		scrollDialogs.reload();
+		scrollMessages.reload();
+	}
+}
+
+function SlyManager(rezolution)
+{
+	var wScroll =  window.innerWidth - document.documentElement.clientWidth;
+	var wWindow = $(window).width();
+	var wDifferent = rezolution - wScroll;
+
+	if(wWindow >= wDifferent)
+	{		
+		if(!Scroll.prototype.exist)
+		{
+			scrollDialogs.build();
+			scrollMessages.build();
+			Scroll.prototype.exist = true;
+		}
+	}
+	else
+	{
+		if(Scroll.prototype.exist)
+		{
+			scrollDialogs.destroy();
+			scrollMessages.destroy();
+			Scroll.prototype.exist = false;
+		}
+	}
+}
+//Блок скролла -- конец
+
+
+//Блок смайлов -- начало
+//Объект 'Смайлы'
+var smiles = {
+	click: 0,
+	button: $('.dg-dialogs-controls__smiles'),
+	window: $('.dg-dialogs-controls__smiles-window')
+}
+
+var scrollSmiles = new Scroll($('.frame-smiles'), $('.slide-smiles'), $('.scroll-smiles'));
+
+//события над объектом 'Смайлы'
+smiles.button.data("hammer");
+smiles.button.hammer().on("tap", smilesTapHandler);
+$(window).on('resize', smilesResizeHandler);
+
+//Обработчики событий над объектом 'Смайлы'
+function smilesResizeHandler()
+{
+	if(!smiles.window.hasClass('display-none'))
+	{
+		smiles.click = 0;
+		smiles.window.addClass('display-none');
+		scrollSmiles.destroy();
+	}
+}
+
+function smilesTapHandler(ev)
+{
+	smiles.click++;
+
+	if(smiles.click % 2 === 0)
+	{
+		smiles.window.addClass('display-none');
+		scrollSmiles.destroy();
+	}
+	else
+	{
+		smiles.window.removeClass('display-none');
+		scrollSmiles.build();
+	}
+}
+//Блок смайлов -- конец
+
+//Блок управления чатом (Диалоги) -- начало
+//Объект 'Чат (Диалоги)'
+var chat = {
+	item: $('.dg-select-dialog__item'),
+	itemArea: $('.dialogs-container'),
+	chatArea: $('.message-container'),
+	backBtn: $('.dg-dialog-back'),
+	searchInpt: $('.search'),
+	logo: $('.head__logo-link'),
+	show: function()
+	{
+		this.item.data("hammer");
+		this.item.hammer().on("tap.Dialogs", selectItemTapHandler);
+		this.backBtn.data("hammer");
+		this.backBtn.hammer().on("tap.Dialogs", backBtnTapHandler);
+	},
+	hide: function()
+	{
+		this.backBtn.off('tap.Dialogs');
+		this.item.off('tap.Dialogs');
+		this.itemArea.removeClass('display-none');
+		this.itemArea.removeClass('display-block');
+		this.chatArea.removeClass('display-none');				
+		this.chatArea.removeClass('display-block');
+		this.searchInpt.removeClass('display-none');	
+		this.searchInpt.removeClass('display-block');
+		this.logo.removeClass('display-none');	
+		this.logo.removeClass('display-block');
+		this.backBtn.removeClass('display-block');
+	}
+}
+
+//События над объектом 'Чат (Диалоги)'
+$(document).ready(chatEventHandler);
+$(window).on('resize', chatEventHandler);
+
+//Обработчики событий над объектом 'Чат (Диалоги)'
+function chatEventHandler()
+{
+	var rezolution = tabletPx;
+	var wWindow = $(window).width();
+	if(wWindow < rezolution)
+	{	
+		chat.show();
+	}
+	else
+	{	
+		chat.hide();
+	}
+}
+
+function selectItemTapHandler(ev)
+{
+	chat.chatArea.removeClass('display-none');
+	chat.chatArea.addClass('display-block');
+	chat.itemArea.removeClass('display-block');
+	chat.itemArea.addClass('display-none');
+	chat.searchInpt.removeClass('display-block');	
+	chat.searchInpt.addClass('display-none');	
+	chat.logo.removeClass('display-block');
+	chat.logo.addClass('display-none');
+	chat.backBtn.removeClass('display-none');
+	chat.backBtn.addClass('display-block');
+}
+
+function backBtnTapHandler(ev)
+{
+	chat.chatArea.removeClass('display-block');	
+	chat.chatArea.addClass('display-none');	
+	chat.itemArea.removeClass('display-none');
+	chat.itemArea.addClass('display-block');
+	chat.searchInpt.removeClass('display-none');	
+	chat.searchInpt.addClass('display-block');	
+	chat.logo.removeClass('display-none');
+	chat.logo.addClass('display-block');
+	chat.backBtn.removeClass('display-block');
+	chat.backBtn.addClass('display-none');
+}
+//Блок управления чатом (Диалоги) -- конец
+
+
+//Блок iosFix -- начало
+if(device.ios())
+{
+	//Объект 'iosFix'
+	var iosFix = {
+		textarea: $('.dg-dialog-controls__textarea'),
+		controls: $('.dg-dialog-controls'),
+		className: 'fix-position'
+	}
+
+	//События над объектом 'iosFix'
+	$(document).ready(iosFixEventHandler);
+
+	//Обработчики событий над объектом 'iosFix'
+	function iosFixEventHandler()
+	{
+		iosControlsFix(iosFix.textarea, iosFix.controls, iosFix.className, phonePx);
+		
+	}
+
+	function iosControlsFix(textarea, controls, className, rezolution)
+	{
+		var wWindow = $(window).width() + (window.innerWidth - document.documentElement.clientWidth);	
+
+		if(wWindow < rezolution)
+		{
+			textarea.on('focusin.iosFix', iosFixFocusinHandler);
+			textarea.on('focusout.iosFix', iosFixFocusoutHandler); 
+		}
+		else
+		{
+			textarea.off('focusin.iosFix');
+			textarea.off('focusout.iosFix');
+		}
+
+		function iosFixFocusinHandler()
+		{
+			$(window).scrollTop(10000);
+			controls.addClass(className);
+			header.addClass(className);	
+			body.css('overflow-x', 'hidden');
+				//console.log('focusIn');
+			}
+
+			function iosFixFocusoutHandler()
+			{	
+				controls.removeClass(className);	
+				header.removeClass(className);
+				body.css('overflow-x', 'auto');
+				//console.log('focusOut');
+			}
+		}
+	}
+//Блок iosFix -- конец
+
+
+
+
+</script>
+</body>
+</html>
+
+
+
+<!--
+						
+
+
+
+
+
+-->

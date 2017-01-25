@@ -1,0 +1,513 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Поиск | Tellmer</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, minimal-ui, user-scalable=no">
+	<!-- Скрипт для LiveReload  -->
+
+
+
+	<!--Подключаем стили в этом порядке  -->
+	<link rel="stylesheet" href="frameworks/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="frameworks/material-bootstrap/css/material.min.css">
+	<link rel="stylesheet" href="frameworks/material-bootstrap/css/ripples.min.css">
+	<link rel="stylesheet" href="frameworks/material-bootstrap/css/roboto.min.css">
+	<link rel="stylesheet" href="libs/jquery/nice-select/css/nice-select.css">
+	<link rel="stylesheet" href="css/style.css?ver=">
+	<link rel="stylesheet" href="css/style-mobile.css?ver=">
+</head>
+<body>
+	<div class="container-fluid text-center"> <!-- Основной контейнер -->	
+
+			<!-- Хедер -->	
+		<header class="header no-padding">		
+			<div class="row head--desktop shadow-z-1 color-skin">
+				<div class="col-xs-4 col-sm-4 col-md-6 col-lg-6 max-height no-padding">
+					<a href="#"><div class="head__logo head__logo--desktop"></div></a>
+				</div>
+				<div class="col-xs-8 col-sm-8 col-md-6 col-lg-6 text-center max-height no-padding">
+					<div class="head__menu--desktop">
+						<a href="/chat.html" data-toggle="tooltip" data-delay="300" data-placement="bottom" data-original-title="Общий чат"><i class="mdi-communication-forum menu-item menu-item--desktop" aria-hidden="true"></i></a>	
+						<a href="/search.html" data-toggle="tooltip" data-delay="300" data-placement="bottom" data-original-title="Поиск"><i class="mdi-action-search menu-item menu-item--desktop" aria-hidden="true"></i></a>	
+						<a href="/dialogs.html" data-toggle="tooltip" data-delay="300" data-placement="bottom" data-original-title="Сообщения"><i class="mdi-communication-email menu-item menu-item--desktop" aria-hidden="true"><span class="badge menu-item__count">3</span></i></a>
+						<a href="#" data-toggle="tooltip" data-delay="300" data-placement="bottom" data-original-title="Друзья"><i class="mdi-social-person-add menu-item menu-item--desktop" aria-hidden="true"><span class="badge menu-item__count">10</span></i></a>
+						<a href="#" data-toggle="tooltip" data-delay="300" data-placement="bottom" data-original-title="Гости"><i class="mdi-social-group menu-item menu-item--desktop" aria-hidden="true"></i></a>
+						<a href="/index.html" data-toggle="tooltip" data-delay="300" data-placement="bottom" data-original-title="Мой профиль"><span class="menu-avatar menu-avatar--desktop"><img	src="img/avatar/mark.jpg" alt=""></span></a>
+						<a href="" data-toggle="tooltip" data-delay="300" data-placement="bottom" data-original-title="Выход"><i class="mdi-action-exit-to-app menu-item menu-item--desktop" aria-hidden="true"></i></a>			
+					</div>
+				</div>
+			</div>
+			<div class="row head--mobile shadow-z-1 color-skin">
+				<div class="col-xs-6 col-sm-6 max-height no-padding">
+					<a href="#"><div class="head__logo head__logo--mobile"></div></a>
+				</div>
+				<div class="col-xs-6 col-sm-6 max-height no-padding">
+					<div class="head__menu-button">
+						<button	id="menu-button" class="menu-button">
+							<i id="menu-button-icon" class="mdi-navigation-menu"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</header>	
+
+		<div class="tellmer-menu">
+			<div class="row content-menu">
+				<div class="col-xs-12 col-sm-12 no-padding max-height">	
+					<ul class="content-menu__list">
+						<li class="d-list__item"></li>
+						<a href=""><li class="d-list__item"><i class="mdi-navigation-arrow-back d-item__icon" aria-hidden="true"><span class="d-item__title">Назад</span></i></li></a>
+						<div class="divider"></div>
+						<a href="/chat.html"><li class="d-list__item"><i class="mdi-communication-forum d-item__icon" aria-hidden="true"><span class="d-item__title">Общий чат</span></i></li></a>
+						<div class="divider"></div>
+						<a href="/search.html"><li class="d-list__item"><i class="mdi-action-search d-item__icon" aria-hidden="true"><span class="d-item__title">Поиск</span></i></li></a>
+						<div class="divider"></div>
+						<a href=""><li class="d-list__item"><i class="mdi-communication-email d-item__icon" aria-hidden="true"><span class="d-item__title">Сообщения<span class="d-title__count">(3)</span></span></i></li></a>
+						<div class="divider"></div>
+						<a href=""><li class="d-list__item"><i class="mdi-social-person-add d-item__icon" aria-hidden="true"><span class="d-item__title">Друзья<span class="d-title__count">(10)</span></span></i></li></a>
+						<div class="divider"></div>
+						<a href=""><li class="d-list__item"><i class="mdi-social-group d-item__icon" aria-hidden="true"><span class="d-item__title">Гости</span></i></li></a>
+						<div class="divider"></div>
+						<a href="/index.html"><li class="d-list__item"><i class="mdi-action-face-unlock d-item__icon" aria-hidden="true"><span class="d-item__title">Мой профиль</span></i></li></a>
+						<div class="divider"></div>
+						<a href=""><li class="d-list__item"><i class="mdi-action-exit-to-app d-item__icon" aria-hidden="true"><span class="d-item__title">Выход</span></i></li></a>							
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="menu-overlay"></div>
+
+		<!-- Хедер конец-->
+
+		<div class="content">
+			<!-- Обложка -->	
+
+			<!-- Карточки -->	
+			<div class="row srch">
+
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 srch-control-block">
+					<div class="card card-sm card-srch shadow-z-1 no-padding">
+
+						<div id="srch-tabs" class="tabs">
+							<div class="row no-padding max-height">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding max-height">	
+
+									<ul class="nav nav-tabs">
+										<li class="active"><a href="#new-friends" data-toggle="tab"><span class="mdi-image-portrait tabs__icon" aria-hidden="true"></span>Новые друзья</a></li>
+										<li><a href="#old-friends" data-toggle="tab"><span class="mdi-action-perm-contact-cal tabs__icon" aria-hidden="true"></span>Знакомые</a></li>	
+									</ul>
+
+									<div class="tab-content">
+										<div class="tab-pane fade in active max-height" id="new-friends">
+
+											<div class="srch__control">
+												<div class="row">
+													<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 srch-control-elements">
+														<div class="row">
+															<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 no-padding">
+																<label class="srch-control-elements__label">Пол:</label>
+															</div>
+															<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 no-padding">
+																<div class="srch-control-elements__select">
+																	<select id="srch-sex">
+																		<option value="0">Пол не выбран</option>
+																		<option value="1">Мужской</option>
+																		<option value="2">Женский</option>
+																	</select>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 srch-control-elements">
+														<div class="row">
+															<div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 no-padding">
+																<label class="srch-control-elements__label">Возраст:</label>
+															</div>
+															<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 no-padding">
+																<div class="srch-control-elements__select">
+																	<select id="srch-age">
+																		<option value="0">Возраст не выбран</option>
+																		<option value="1">18 - 22</option>
+																		<option value="2">23 - 27</option>
+																		<option value="2">28 - 32</option>
+																		<option value="2">32 - 36</option>
+																	</select>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-12 col-sm-3 col-md-3 col-lg-4 srch-control-elements">
+														<div class="row">
+															<div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 no-padding">
+																<label class="srch-control-elements__label">СП:</label>
+															</div>
+															<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 no-padding">
+																<div class="srch-control-elements__select">
+																	<select id="srch-relationship">
+																		<option value="0">СП не выбрано</option>
+																		<option value="1">В активном поиске</option>
+																		<option value="2">Уже встречаюсь</option>
+																		<option value="3">В браке</option>
+																		<option value="4">Никого не ищу</option>
+																	</select>	
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-12 col-sm-3 col-md-3 col-lg-2 srch-control-elements">	
+														<div id="srch-checkbox" class="checkbox srch-control-elements__checkbox">
+															<label class="srch-checkbox__label">
+																<input type="checkbox"> Online
+															</label>
+														</div>
+														<div class="srch-control-elements__btn-search">
+															<button id="srch-btn" class="btn btn-fab btn-raised mdi-action-search srch-btn-search__btn"></button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="tab-pane fade max-height" id="old-friends">
+											
+											<div class="srch__control">
+												<div class="row">
+													<div class="col-xs-12 col-sm-11 col-md-11 col-lg-11 srch-control-elements">
+														<div class="srch-control-elements__input-txt">
+															<input type="text" class="form-control input" id="srch-input-txt" placeholder="Введите имя и фамилию человека">
+														</div>
+													</div>
+													<div class="col-xs-12 col-sm-1 col-md-1 col-lg-1 srch-control-elements">
+														<div class="srch-control-elements__btn-search">
+															<button id="srch-btn" class="btn btn-fab btn-raised mdi-action-search srch-btn-search__btn"></button>
+														</div>
+													</div>
+												</div>
+											</div>
+
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+					<div class="grid-isotope">
+
+						<div class="grid-item card card-sm shadow-z-1 srch-user-card">
+							<a href="#">
+								<div class="srch-user-card__avatar">
+									<img class="srch-d-avatar__img" src="img/grid/1.jpg"/>
+								</div>
+							</a>
+							<div class="srch-user-card__info">
+								<p class="srch-d-info__user-name"><a href="#">Лера Новоселова</a></p>
+								<div class="divider divider--phone-disable"></div>
+								<p class="srch-d-info__user-data">
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate nostrum nulla, voluptatem quam reprehenderit! Doloremque quia, quaerat accusantium consequatur dignissimos id, fugiat error est natus eius sit ex animi accusamus.
+								</p>
+								<div class="divider divider--phone-disable"></div>
+								<div class="srch-d-info__user-stat">
+									<div class="row no-padding">
+										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 no-padding srch-d-user-stat__item">
+											<span class="srch-d-item__icon srch-d-item__icon--up mdi-action-thumb-up" aria-hidden="true"></span><br>
+											<span class="srch-d-item__count">58</span>
+										</div>
+										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 no-padding srch-d-user-stat__item">
+											<span class="srch-d-item__icon srch-d-item__icon--down mdi-action-thumb-down" aria-hidden="true"></span><br>
+											<span class="srch-item__count">25</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="grid-item card card-sm shadow-z-1 srch-user-card">
+							<a href="#">
+								<div class="srch-user-card__avatar">
+									<img class="srch-d-avatar__img" src="img/grid/2.jpg"/>
+								</div>
+							</a>
+							<div class="srch-user-card__info">
+								<p class="srch-d-info__user-name"><a href="#">Лера Новоселова</a></p>
+								<div class="divider divider--phone-disable"></div>
+								<p class="srch-d-info__user-data">
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+								</p>
+								<div class="divider divider--phone-disable"></div>
+								<div class="srch-d-info__user-stat">
+									<div class="row no-padding">
+										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 no-padding srch-d-user-stat__item">
+											<span class="srch-d-item__icon srch-d-item__icon--up mdi-action-thumb-up" aria-hidden="true"></span><br>
+											<span class="srch-d-item__count">58</span>
+										</div>
+										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 no-padding srch-d-user-stat__item">
+											<span class="srch-d-item__icon srch-d-item__icon--down mdi-action-thumb-down" aria-hidden="true"></span><br>
+											<span class="srch-d-item__count">25</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="grid-item card card-sm shadow-z-1 srch-user-card">
+							<a href="#">
+								<div class="srch-user-card__avatar">
+									<img class="srch-d-avatar__img" src="img/grid/3.jpg"/>
+								</div>
+							</a>
+							<div class="srch-user-card__info">
+								<p class="srch-d-info__user-name"><a href="#">Лера Новоселова</a></p>
+								<div class="divider divider--phone-disable"></div>
+								<p class="srch-d-info__user-data">
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores asperiores 
+								</p>
+								<div class="divider divider--phone-disable"></div>
+								<div class="srch-d-info__user-stat">
+									<div class="row no-padding">
+										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 no-padding srch-d-user-stat__item">
+											<span class="srch-d-item__icon srch-d-item__icon--up mdi-action-thumb-up" aria-hidden="true"></span><br>
+											<span class="srch-d-item__count">58</span>
+										</div>
+										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 no-padding srch-d-user-stat__item">
+											<span class="srch-d-item__icon srch-d-item__icon--down mdi-action-thumb-down" aria-hidden="true"></span><br>
+											<span class="srch-d-item__count">25</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="grid-item card card-sm shadow-z-1 srch-user-card">
+							<a href="#">
+								<div class="srch-user-card__avatar">
+									<img class="srch-d-avatar__img" src="img/grid/4.jpg"/>
+								</div>
+							</a>
+							<div class="srch-user-card__info">
+								<p class="srch-d-info__user-name"><a href="#">Лера Новоселова</a></p>
+								<div class="divider divider--phone-disable"></div>
+								<p class="srch-d-info__user-data">
+									Lorem ipsum
+								</p>
+								<div class="divider divider--phone-disable"></div>
+								<div class="srch-d-info__user-stat">
+									<div class="row no-padding">
+										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 no-padding srch-d-user-stat__item">
+											<span class="srch-d-item__icon srch-d-item__icon--up mdi-action-thumb-up" aria-hidden="true"></span><br>
+											<span class="srch-d-item__count">58</span>
+										</div>
+										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 no-padding srch-d-user-stat__item">
+											<span class="srch-d-item__icon srch-d-item__icon--down mdi-action-thumb-down" aria-hidden="true"></span><br>
+											<span class="srch-d-item__count">25</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="grid-item card card-sm shadow-z-1 srch-user-card">
+							<a href="#">
+								<div class="srch-user-card__avatar">
+									<img class="srch-d-avatar__img" src="img/grid/5.jpg"/>
+								</div>
+							</a>
+							<div class="srch-user-card__info">
+								<p class="srch-d-info__user-name"><a href="#">Лера Новоселова</a></p>
+								<div class="divider divider--phone-disable"></div>
+								<p class="srch-d-info__user-data">
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores asperiores iste hic aperiam commodi
+								</p>
+								<div class="divider divider--phone-disable"></div>
+								<div class="srch-d-info__user-stat">
+									<div class="row no-padding">
+										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 no-padding srch-d-user-stat__item">
+											<span class="srch-d-item__icon srch-d-item__icon--up mdi-action-thumb-up" aria-hidden="true"></span><br>
+											<span class="srch-d-item__count">58</span>
+										</div>
+										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 no-padding srch-d-user-stat__item">
+											<span class="srch-d-item__icon srch-d-item__icon--down mdi-action-thumb-down" aria-hidden="true"></span><br>
+											<span class="srch-d-item__count">25</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="grid-item card card-sm shadow-z-1 srch-user-card">
+							<a href="#">
+								<div class="srch-user-card__avatar">
+									<img class="srch-d-avatar__img" src="img/grid/6.jpg"/>
+								</div>
+							</a>
+							<div class="srch-user-card__info">
+								<p class="srch-d-info__user-name"><a href="#">Лера Новоселова</a></p>
+								<div class="divider divider--phone-disable"></div>
+								<p class="srch-d-info__user-data">
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+								</p>
+								<div class="divider divider--phone-disable"></div>
+								<div class="srch-d-info__user-stat">
+									<div class="row no-padding">
+										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 no-padding srch-d-user-stat__item">
+											<span class="srch-d-item__icon srch-d-item__icon--up mdi-action-thumb-up" aria-hidden="true"></span><br>
+											<span class="srch-d-item__count">58</span>
+										</div>
+										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 no-padding srch-d-user-stat__item">
+											<span class="srch-d-item__icon srch-d-item__icon--down mdi-action-thumb-down" aria-hidden="true"></span><br>
+											<span class="srch-d-item__count">25</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="grid-item card card-sm shadow-z-1 srch-user-card">
+							<a href="#">
+								<div class="srch-user-card__avatar">
+									<img class="srch-d-avatar__img" src="img/grid/7.jpg"/>
+								</div>
+							</a>
+							<div class="srch-user-card__info">
+								<p class="srch-d-info__user-name"><a href="#">Лера Новоселова</a></p>
+								<div class="divider divider--phone-disable"></div>
+								<p class="srch-d-info__user-data">
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores asperiores 
+								</p>
+								<div class="divider divider--phone-disable"></div>
+								<div class="srch-d-info__user-stat">
+									<div class="row no-padding">
+										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 no-padding srch-d-user-stat__item">
+											<span class="srch-d-item__icon srch-d-item__icon--up mdi-action-thumb-up" aria-hidden="true"></span><br>
+											<span class="srch-d-item__count">58</span>
+										</div>
+										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 no-padding srch-d-user-stat__item">
+											<span class="srch-d-item__icon srch-d-item__icon--down mdi-action-thumb-down" aria-hidden="true"></span><br>
+											<span class="srch-d-item__count">25</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="grid-item card card-sm shadow-z-1 srch-user-card">
+							<a href="#">
+								<div class="srch-user-card__avatar">
+									<img class="srch-d-avatar__img" src="img/grid/8.jpg"/>
+								</div>
+							</a>
+							<div class="srch-user-card__info">
+								<p class="srch-d-info__user-name"><a href="#">Лера Новоселова</a></p>
+								<div class="divider divider--phone-disable"></div>
+								<p class="srch-d-info__user-data">
+									Lorem ipsum
+								</p>
+								<div class="divider divider--phone-disable"></div>
+								<div class="srch-d-info__user-stat">
+									<div class="row no-padding">
+										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 no-padding srch-d-user-stat__item">
+											<span class="srch-d-item__icon srch-d-item__icon--up mdi-action-thumb-up" aria-hidden="true"></span><br>
+											<span class="srch-d-item__count">58</span>
+										</div>
+										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 no-padding srch-d-user-stat__item">
+											<span class="srch-d-item__icon srch-d-item__icon--down mdi-action-thumb-down" aria-hidden="true"></span><br>
+											<span class="srch-d-item__count">25</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="grid-item card card-sm shadow-z-1 srch-user-card">
+							<a href="#">
+								<div class="srch-user-card__avatar">
+									<img class="srch-d-avatar__img" src="img/grid/9.jpg"/>
+								</div>
+							</a>
+							<div class="srch-user-card__info">
+								<p class="srch-d-info__user-name"><a href="#">Лера Новоселова</a></p>
+								<div class="divider divider--phone-disable"></div>
+								<p class="srch-d-info__user-data">
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores asperiores iste hic aperiam commodi
+								</p>
+								<div class="divider divider--phone-disable"></div>
+								<div class="srch-d-info__user-stat">
+									<div class="row no-padding">
+										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 no-padding srch-d-user-stat__item">
+											<span class="srch-d-item__icon srch-d-item__icon--up mdi-action-thumb-up" aria-hidden="true"></span><br>
+											<span class="srch-d-item__count">58</span>
+										</div>
+										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 no-padding srch-d-user-stat__item">
+											<span class="srch-d-item__icon srch-d-item__icon--down mdi-action-thumb-down" aria-hidden="true"></span><br>
+											<span class="srch-d-item__count">25</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="grid-item card card-sm shadow-z-1 srch-user-card">
+							<a href="#">
+								<div class="srch-user-card__avatar">
+									<img class="srch-d-avatar__img" src="img/grid/10.jpg"/>
+								</div>
+							</a>
+							<div class="srch-user-card__info">
+								<p class="srch-d-info__user-name"><a href="#">Лера Новоселова</a></p>
+								<div class="divider divider--phone-disable"></div>
+								<p class="srch-d-info__user-data">
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+								</p>
+								<div class="divider divider--phone-disable"></div>
+								<div class="srch-d-info__user-stat">
+									<div class="row no-padding">
+										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 no-padding srch-d-user-stat__item">
+											<span class="srch-d-item__icon srch-d-item__icon--up mdi-action-thumb-up" aria-hidden="true"></span><br>
+											<span class="srch-d-item__count">58</span>
+										</div>
+										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 no-padding srch-d-user-stat__item">
+											<span class="srch-d-item__icon srch-d-item__icon--down mdi-action-thumb-down" aria-hidden="true"></span><br>
+											<span class="srch-d-item__count">25</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+
+				<button id="srch-btn-up" class="btn btn-fab btn-raised mdi-navigation-expand-less srch-btn-up"></button>
+
+			</div>
+
+		</div>
+
+	</div> <!-- Основной контейнер конец-->
+
+	<script src="libs/jquery/jquery.js"></script> <!-- jQuery -->
+	<script src="libs/jquery/sly/sly.min.js"></script> <!-- Скролл -->
+	<script src="libs/jquery/nice-select/js/jquery.nice-select.min.js"></script>
+	<script src="libs/jquery/circle-progress/circle-progress.js"></script>
+	<script src="libs/jquery/isotope/isotope.pkgd.min.js"></script>
+	<script src="frameworks/bootstrap/js/bootstrap.min.js"></script> <!-- Bootstrap 3 -->
+	<script src="frameworks/material-bootstrap/js/material.min.js"></script> <!-- Material -->
+	<script src="frameworks/material-bootstrap/js/ripples.min.js"></script> <!-- Material framework -->
+	<script src="libs/jquery/imagelightbox/imagelightbox.js"></script> 
+	<script src="libs/jquery/imagelightbox/imagelightbox-main.js"></script> 
+	<script src="libs/jquery/device/device.min.js"></script>
+	<script src="libs/hammer/hammer.min.js"></script>
+	<script src="libs/hammer/jquery.hammer.js"></script>
+	<script src="js/main.js"></script>
+	<script>
+	</script>
+</body>
+</html>
+
